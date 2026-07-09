@@ -1,7 +1,7 @@
 interface:
   display_name: "Autonomous Dev Loop"
-  short_description: "Structured autonomous dev loops"
-  default_prompt: "Use $autonomous-dev-loop to plan a controlled autonomous development loop for this project."
+  short_description: "Autonomous dev loop with safety gates"
+  default_prompt: "Use $autonomous-dev-loop to execute a scoped development objective with safety gates."
 
 policy:
   allow_implicit_invocation: true

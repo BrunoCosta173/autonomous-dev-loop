@@ -10,7 +10,8 @@ The project is in early planning and scaffolding.
 
 - Step 0 foundation is complete.
 - Step 1 repository structure is complete.
-- The full Skill behavior is intentionally deferred.
+- Step 2 internal Skill architecture is complete.
+- Installer scripts, asset templates, and complete examples are intentionally deferred.
 
 ## Repository Purpose
 
@@ -34,7 +35,7 @@ Objective intake -> project inspection -> planning -> ToDo generation -> executi
 - Write in English.
 - Keep the Skill generic and stack-agnostic.
 - Avoid private, company-specific, product-specific, ERP-specific, or CRM-specific assumptions.
-- Do not implement the full autonomous loop until the appropriate planning step.
+- Keep autonomous loop behavior aligned with the existing Skill references.
 - Do not create installer scripts yet.
 - Keep the Claude Skill behaviorally equivalent to the Codex/OpenAI Skill.
 - Update `CHANGELOG.md` when making notable changes.

@@ -1,14 +1,58 @@
 ---
 name: autonomous-dev-loop
-description: "Planning-stage skill for structured autonomous software development loops. Use when a future implementation should guide AI coding agents through objective intake, project inspection, planning, execution, testing, repair, documentation, and final reporting with safety gates."
+description: "Structured autonomous software development loop with safety gates. Use when Codex should execute a user-provided development objective by inspecting a project, detecting the stack, planning ToDos, modifying files, running available validation commands, repairing failures, documenting changes, and producing a final report."
 ---
 
 # autonomous-dev-loop
 
-This is the initial `0.0.1` planning version of the Codex/OpenAI Skill.
+Use this Skill to run an objective-driven autonomous development loop with safety gates.
 
-The full autonomous development loop behavior has not been implemented yet. Future steps will define the internal Skill architecture and the core workflow.
+## Core Model
 
-This Codex/OpenAI Skill must remain behaviorally equivalent to the Claude Code Skill at `.claude/skills/autonomous-dev-loop/SKILL.md`.
+```text
+Objective-driven autonomous development loop with safety gates
+```
 
-For now, treat this file as the Codex/OpenAI Skill entry point placeholder only.
+Require a user-provided development objective. If the objective is too vague, ask only blocking intake questions. If it is clear enough, proceed with safe assumptions and record them before execution.
+
+## Workflow
+
+Follow this loop:
+
+1. Intake
+2. Inspect
+3. Detect stack
+4. Plan
+5. Generate ToDos
+6. Execute
+7. Test
+8. Repair
+9. Document
+10. Report
+11. Continue or stop
+
+Continue while unfinished ToDos remain inside the current objective. Do not drift into unrelated scope.
+
+## Safety Gates
+
+Use autonomous execution for safe, objective-scoped work. Stop for human confirmation before destructive commands, mass deletion, data-loss migrations, authentication or authorization changes, secret or environment handling, deployment, major rewrites, framework replacement, irreversible operations, business-critical rule changes, or materially ambiguous product decisions.
+
+## References
+
+Load the relevant reference file for each phase:
+
+- `references/objective-intake.md`: objective intake, assumptions, and blocking questions.
+- `references/autonomy-model.md`: allowed autonomous actions and confirmation boundaries.
+- `references/loop-protocol.md`: complete loop protocol and stop conditions.
+- `references/todo-execution.md`: ToDo format, statuses, prioritization, and validation.
+- `references/scope-management.md`: scope boundaries and unrelated findings.
+- `references/safety-gates.md`: mandatory human confirmation rules.
+- `references/stack-detection.md`: stack and command detection guidance.
+- `references/testing-strategy.md`: command selection and validation reporting.
+- `references/repair-strategy.md`: failure triage and repair rules.
+- `references/documentation-rules.md`: project control file guidance.
+- `references/final-report.md`: required final report structure.
+
+## Equivalence Requirement
+
+Keep this Codex/OpenAI Skill behaviorally equivalent to the Claude Code Skill at `.claude/skills/autonomous-dev-loop/SKILL.md`.

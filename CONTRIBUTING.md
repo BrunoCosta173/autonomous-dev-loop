@@ -6,9 +6,9 @@ This project is in early planning. Contributions should keep the repository clea
 
 ## Current Scope
 
-Version `0.0.1` is focused on planning and scaffolding.
+Version `0.0.1` is focused on planning, scaffolding, and the initial internal Skill behavior.
 
-Do not implement the full autonomous development loop behavior until the internal Skill architecture and core behavior are defined in a later planning step.
+Do not add installer scripts, complete examples, or broad new behavior until a planning step defines the scope.
 
 ## Guidelines
 

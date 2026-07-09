@@ -10,7 +10,8 @@ The project is in early planning and scaffolding.
 
 - Step 0 foundation is complete.
 - Step 1 repository structure is complete.
-- The full Skill behavior is not implemented yet.
+- Step 2 internal Skill architecture is complete.
+- Installer scripts, asset templates, and complete examples are not implemented yet.
 
 ## Repository Goals
 
@@ -27,7 +28,7 @@ Objective intake -> project inspection -> planning -> ToDo generation -> executi
 - Keep all content in English.
 - Keep the project generic and public GitHub-ready.
 - Do not add private, company-specific, or environment-specific information.
-- Do not implement detailed autonomous loop behavior before the planning step that authorizes it.
+- Keep autonomous loop behavior aligned with the existing Skill references.
 - Do not add installer scripts until the roadmap explicitly calls for them.
 - Preserve behavioral equivalence between the Codex/OpenAI and Claude Skill versions.
 - Keep Skill folders focused on installable Skill content.

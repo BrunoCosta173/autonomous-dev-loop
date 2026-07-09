@@ -16,5 +16,8 @@ This project uses semantic versioning.
 - Added reusable adapter templates for `AGENTS.md`, `CLAUDE.md`, and generic AI coding agents.
 - Added initial contribution and repository agent instruction files.
 - Added reserved example folders for future Next.js, FastAPI, and Laravel examples.
+- Defined the Step 2 internal Skill architecture and core autonomous development loop behavior.
+- Replaced initial Skill placeholders with concise behavior entry points for Codex/OpenAI and Claude Code.
+- Added mirrored Skill reference files for objective intake, autonomy, loop protocol, ToDos, scope management, safety gates, stack detection, testing, repair, documentation, and final reports.
 - Added the initial public README draft.
 - Added the MIT License.

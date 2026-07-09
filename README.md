@@ -10,9 +10,9 @@ Objective intake -> project inspection -> planning -> ToDo generation -> executi
 
 ## Status
 
-This project is in initial planning.
+This project is in initial planning and Skill architecture definition.
 
-The full skill implementation has not been created yet. The current repository documents the foundation decisions and prepares the official version `0.0.1` repository structure.
+The final public README, installer scripts, and complete example projects have not been created yet. The current repository documents the foundation decisions, prepares the official version `0.0.1` repository structure, and defines the initial internal Skill behavior.
 
 ## Intended Users
 
@@ -69,6 +69,7 @@ Rather than assuming a default stack, the skill should teach agents to inspect t
 - [Project brief](PROJECT_BRIEF.md)
 - [Step 0 foundation](docs/planning/STEP_0_FOUNDATION.md)
 - [Step 1 repository structure](docs/planning/STEP_1_REPOSITORY_STRUCTURE.md)
+- [Step 2 internal Skill architecture](docs/planning/STEP_2_INTERNAL_SKILL_ARCHITECTURE.md)
 - [Repository structure design](docs/design/repository-structure.md)
 - [Skill architecture design](docs/design/skill-architecture.md)
 - [Changelog](CHANGELOG.md)
