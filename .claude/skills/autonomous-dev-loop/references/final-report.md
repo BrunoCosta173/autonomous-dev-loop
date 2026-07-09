@@ -9,6 +9,7 @@ For a persistent report, copy or adapt `assets/FINAL_REPORT.template.md` into th
 Report:
 
 - Objective
+- Goal Completion Mode status
 - Starting context or Objective Brief summary
 - Autonomy level used
 - Assumptions
@@ -30,6 +31,7 @@ Report:
 - Suggestions deferred and why
 - Final review status
 - Remaining issues
+- Handoff summary, when work is incomplete or likely to continue
 - Recommended next objective
 - Final status
 
@@ -45,6 +47,7 @@ Use one of:
 ## Reporting Rules
 
 - Be specific about what changed.
+- State whether Goal Completion Mode was active, planning-only, supervised, or continuous.
 - Include command names and outcomes.
 - Do not claim validation passed unless commands actually ran.
 - If commands were unavailable or not run, say why.
@@ -57,6 +60,24 @@ Use one of:
 - Keep the report concise but complete enough for another agent or developer to continue.
 - Prefer the chat final report for small runs.
 - Prefer `FINAL_REPORT.md` for longer runs, blocked work, or handoffs across sessions.
+- Persist or include a handoff when the objective is not complete or the next step requires human input.
+
+## Handoff Rule
+
+When final status is `Partially complete`, `Blocked`, or `Failed`, include:
+
+- Active objective
+- Completed, pending, and blocked ToDos
+- Files changed
+- Commands run
+- Validation status
+- Review status
+- Safety gates
+- Known issues
+- Next recommended action
+- Resume instruction
+
+Use the format in `continuation-handoff.md` when a durable handoff is useful.
 
 ## Recommended Next Objective
 

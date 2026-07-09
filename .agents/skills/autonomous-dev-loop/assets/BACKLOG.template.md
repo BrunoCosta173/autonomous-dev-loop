@@ -10,6 +10,9 @@ Use this file to track prioritized future work, unresolved findings, and out-of-
   Scope:
   Rationale:
   Validation method:
+  Related objective:
+  Latest reliable state:
+  Next action:
   Notes:
 ```
 
@@ -21,6 +24,9 @@ Use this file to track prioritized future work, unresolved findings, and out-of-
   Scope:
   Rationale:
   Validation method:
+  Related objective:
+  Latest reliable state:
+  Next action:
   Notes:
 ```
 
@@ -32,6 +38,9 @@ Use this file to track prioritized future work, unresolved findings, and out-of-
   Scope:
   Rationale:
   Validation method:
+  Related objective:
+  Latest reliable state:
+  Next action:
   Notes:
 ```
 
@@ -43,6 +52,9 @@ Use this file to track prioritized future work, unresolved findings, and out-of-
   Scope:
   Rationale:
   Validation method:
+  Related objective:
+  Latest reliable state:
+  Next action:
   Notes:
 ```
 
@@ -54,6 +66,9 @@ Use this file to track prioritized future work, unresolved findings, and out-of-
   Scope:
   Rationale:
   Validation method:
+  Related objective:
+  Latest reliable state:
+  Next action:
   Notes:
 ```
 
@@ -65,6 +80,9 @@ Use this file to track prioritized future work, unresolved findings, and out-of-
   Scope:
   Rationale:
   Validation method:
+  Related objective:
+  Latest reliable state:
+  Next action:
   Notes:
 ```
 
@@ -76,6 +94,9 @@ Use this file to track prioritized future work, unresolved findings, and out-of-
   Scope:
   Rationale:
   Validation method:
+  Related objective:
+  Latest reliable state:
+  Next action:
   Notes:
 ```
 
@@ -87,5 +108,8 @@ Use this file to track prioritized future work, unresolved findings, and out-of-
   Scope:
   Rationale:
   Validation method:
+  Related objective:
+  Latest reliable state:
+  Next action:
   Notes:
 ```

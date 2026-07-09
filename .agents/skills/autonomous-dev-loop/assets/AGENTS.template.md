@@ -30,6 +30,12 @@ Objective intake -> kickoff -> inspect -> detect stack -> plan -> generate ToDos
 
 Stay anchored to the user-provided objective. Do not switch to unrelated scope without confirmation.
 
+## Goal Completion Mode
+
+When a user provides a development objective, treat it as the active goal and work toward completion unless the user requests planning only, a safety gate blocks progress, or the configured run limits are reached.
+
+Do not assume a native `/goal` command is available. Use platform-native goal workflows only when supported and safe; otherwise emulate goal completion through ToDos, validation, review rounds, documentation, and final reporting.
+
 ## Intake And Kickoff
 
 - Ask only blocking questions.
@@ -73,6 +79,19 @@ Update project control files when useful:
 
 Do not create every control file automatically. Use them when they improve continuity or traceability.
 
+Use project control files as persistent memory. Actual files and current user instructions override stale notes.
+
+## Continuation And Handoff
+
+When resuming work:
+
+1. Read the current user instruction.
+2. Inspect current git status and actual files.
+3. Review `TODO.md`, `DEVELOPMENT_LOG.md`, `FINAL_REPORT.md`, `KNOWN_ISSUES.md`, `BACKLOG.md`, and `ROADMAP.md` when present.
+4. Continue from the latest reliable state.
+
+Persist a handoff when work is partially complete, blocked, stopped by a safety gate, or likely to continue later.
+
 ## Safety Gates
 
 Stop and request human confirmation before:
@@ -112,5 +131,6 @@ End each run with:
 - Repairs applied
 - Safety gates encountered
 - Remaining issues
+- Handoff or resume instruction when incomplete
 - Recommended next objective
 - Final status: `Complete`, `Partially complete`, `Blocked`, or `Failed`

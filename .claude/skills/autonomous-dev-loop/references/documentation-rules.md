@@ -4,6 +4,8 @@ Update documentation when it improves continuity, traceability, or future autono
 
 Do not force every control file into every project.
 
+Use project control files as persistent project memory when they help future agents resume safely.
+
 ## Useful Control Files
 
 Create or update when useful:
@@ -31,6 +33,8 @@ Create or update when useful:
 - `KNOWN_ISSUES.md`: unresolved bugs, failing commands, or blockers.
 - `TODO.md`: active execution plan for the current autonomous run.
 - `FINAL_REPORT.md`: persistent final report when the user wants durable run output.
+
+See `persistent-memory.md` for memory file roles and persistence policy.
 
 ## Template Assets
 
@@ -83,3 +87,7 @@ At the end of a loop, update durable docs when:
 - There are unresolved issues or deferred ToDos.
 - Tests could not run and the reason should persist.
 - A decision was made that future work should not revisit casually.
+- Goal Completion Mode ended partially complete, blocked, or failed.
+- A handoff is needed for continuation across sessions.
+
+Use `continuation-handoff.md` for continuation priority, handoff format, and final status criteria.

@@ -9,6 +9,7 @@ Objective:
 Target area:
 Desired outcome:
 Autonomy level:
+Goal Completion Mode: [Active | Planning only | Supervised batches | Continuous autonomous loop]
 Definition of done:
 ```
 
@@ -40,8 +41,11 @@ Definition of done:
 
 ```text
 Previous run:
+Active objective:
 Latest reliable state:
 Known blockers:
+Review status:
+Resume instruction:
 ```
 
 ## Status Values

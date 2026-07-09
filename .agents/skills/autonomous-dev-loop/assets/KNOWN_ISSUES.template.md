@@ -4,15 +4,17 @@ Use this file to track known bugs, limitations, risks, and unresolved blockers.
 
 ## Issue Template
 
-```text
 ## ISSUE-[NUMBER]: [TITLE]
 
-Severity: [Critical | High | Medium | Low]
-Area:
-Status: [Open | In progress | Blocked | Resolved | Deferred]
-Owner:
-Source: [Review | Validation | User report | Other]
-Safety gate: [None | Required | Resolved]
+- Severity: `[Critical | High | Medium | Low]`
+- Area:
+- Status: `[Open | In progress | Blocked | Resolved | Deferred]`
+- Owner:
+- Source: `[Review | Validation | User report | Other]`
+- Safety gate: `[None | Required | Resolved]`
+- Blocking objective:
+- Latest reliable state:
+- Resume impact:
 
 ### Description
 
@@ -38,6 +40,15 @@ Describe any safe temporary workaround, if available.
 
 Describe the next concrete step.
 
+### Handoff Notes
+
+```text
+Pending blocker:
+Safety gate:
+Review status:
+Resume instruction:
+```
+
 ### Review Context
 
 ```text
@@ -46,5 +57,4 @@ Round:
 Score impact:
 Required fix:
 Deferred reason:
-```
 ```

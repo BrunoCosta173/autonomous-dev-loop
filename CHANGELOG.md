@@ -4,6 +4,15 @@ All notable changes to this project will be documented in this file.
 
 This project uses semantic versioning.
 
+## 0.0.7
+
+### Added
+
+- Added Goal Completion Mode so a user-provided objective becomes the active goal without requiring a universal `/goal` command.
+- Added persistent project memory guidance for project control files and continuation-safe state.
+- Added continuation and cross-session handoff protocol with latest reliable state priority and final status criteria.
+- Updated Skill references and templates to capture active objective, goal mode, handoff summary, resume instructions, blockers, and review status.
+
 ## 0.0.6
 
 ### Added

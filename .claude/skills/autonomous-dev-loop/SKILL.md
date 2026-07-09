@@ -1,6 +1,6 @@
 ---
 name: autonomous-dev-loop
-description: "Structured autonomous software development loop with safety gates. Use when Claude Code should execute a user-provided development objective by inspecting a project, detecting the stack, planning ToDos, modifying files, running available validation commands, repairing failures, documenting changes, and producing a final report."
+description: "Structured autonomous software development loop with safety gates, Goal Completion Mode, review rounds, and cross-session handoff. Use when Claude Code should execute a user-provided development objective by inspecting a project, detecting the stack, planning ToDos, modifying files, running validation commands, repairing failures, documenting changes, and producing a final report."
 ---
 
 # autonomous-dev-loop
@@ -14,6 +14,8 @@ Objective-driven autonomous development loop with safety gates
 ```
 
 Require a user-provided development objective. If the objective is too vague, ask only blocking intake questions. If it is clear enough, proceed with safe assumptions and record them before execution.
+
+When invoked with a development objective, treat that objective as the active goal through Goal Completion Mode. Use a platform-native goal or long-run workflow only when supported and safe; otherwise emulate goal-oriented execution through this Skill.
 
 ## Workflow
 
@@ -45,6 +47,7 @@ Load the relevant reference file for each phase:
 
 - `references/objective-intake.md`: objective intake, assumptions, and blocking questions.
 - `references/kickoff-protocol.md`: Objective Brief, kickoff response, and continuation kickoff formats.
+- `references/goal-completion-mode.md`: active-goal behavior, platform policy, and completion criteria.
 - `references/autonomy-model.md`: allowed autonomous actions and confirmation boundaries.
 - `references/loop-protocol.md`: complete loop protocol and stop conditions.
 - `references/todo-execution.md`: ToDo format, statuses, prioritization, and validation.
@@ -61,6 +64,8 @@ Load the relevant reference file for each phase:
 - `references/review-subagent-loop.md`: review rounds, scoring, correction cycles, and completion quality gates.
 - `references/reviewer-roles.md`: reviewer selection rules and role rubrics.
 - `references/documentation-rules.md`: project control file guidance.
+- `references/persistent-memory.md`: project memory file roles and persistence policy.
+- `references/continuation-handoff.md`: continuation priority, handoff format, and final status criteria.
 - `references/final-report.md`: required final report structure.
 
 ## Equivalence Requirement

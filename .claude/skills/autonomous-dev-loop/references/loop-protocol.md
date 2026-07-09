@@ -2,6 +2,8 @@
 
 Use this protocol for each autonomous development run.
 
+When the user invokes the Skill with a development objective, run the loop in Goal Completion Mode unless the user explicitly requested planning only.
+
 ## Core Loop
 
 1. Intake
@@ -20,10 +22,12 @@ Use this protocol for each autonomous development run.
 ## Loop Rules
 
 - Continue while unfinished ToDos remain inside the current objective.
+- Treat the user-provided objective as the active goal and drive it toward completion.
 - Do not switch to unrelated scope.
 - If unrelated issues are discovered, record them instead of fixing them immediately.
 - Stop when the objective is complete, blocked by a safety gate, blocked by missing information, or no feasible ToDos remain.
 - Do not declare completion until relevant validation has run or been documented as unavailable, and the Review Subagent Loop passing criteria are met.
+- Persist progress in project control files when useful for continuation or traceability.
 
 ## Stop Conditions
 
@@ -35,6 +39,7 @@ Stop when:
 - Review Subagent Loop passing criteria are met.
 - A safety gate requires human approval.
 - The maximum review rounds are reached.
+- The maximum autonomous cycles are reached.
 - The same issue repeats twice without progress.
 - The objective becomes too broad or ambiguous.
 - The user's defined budget, time, or command constraints are reached.
@@ -45,7 +50,7 @@ Stop when:
 
 Clarify the objective only as much as needed to execute safely. Ask only blocking questions. Record assumptions before file edits.
 
-Read `objective-intake.md` and `kickoff-protocol.md`.
+Read `objective-intake.md`, `kickoff-protocol.md`, and `goal-completion-mode.md`.
 
 ### Inspect
 
@@ -102,6 +107,8 @@ Update useful project control files when doing so improves continuity or traceab
 
 Use templates from `assets/` as starting points. Do not create every template automatically.
 
+Read `persistent-memory.md`.
+
 ### Report
 
 Produce a final report with objective status, changed files, commands, results, issues, and next recommended objective.
@@ -109,6 +116,8 @@ Produce a final report with objective status, changed files, commands, results, 
 Use `assets/FINAL_REPORT.template.md` when a persistent `FINAL_REPORT.md` is useful.
 
 Include commands that were unavailable, skipped, unsafe, or not run, with reasons.
+
+If work is incomplete or likely to continue, include or persist a handoff using `continuation-handoff.md`.
 
 ## Unrelated Findings
 

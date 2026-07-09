@@ -8,6 +8,8 @@ The kickoff protocol turns the user objective into a concise Objective Brief, Ex
 
 It should give the user enough visibility into the run without turning the process into bureaucracy.
 
+When the user provides a development objective, the kickoff also establishes Goal Completion Mode unless the user requested planning only.
+
 ## Objective Brief Format
 
 Use this format:
@@ -29,6 +31,9 @@ Use this format:
 
 ## Autonomy level
 A3 — Autonomous With Safety Gates
+
+## Goal Completion Mode
+Active | Planning only | Supervised batches | Continuous autonomous loop
 
 ## Allowed actions
 - ...
@@ -52,6 +57,8 @@ A3 — Autonomous With Safety Gates
 Default autonomy level: `A3 — Autonomous With Safety Gates`.
 
 Use `A4 — Continuous Autonomous Loop` only when the user explicitly asks the agent to continue through multiple internal cycles or broadly improve an area until completion.
+
+Do not require the user to type `/goal`. Use a native platform goal workflow only when it exists and is safe; otherwise emulate Goal Completion Mode through the Skill protocol.
 
 ## Kickoff Response Format
 
@@ -129,11 +136,15 @@ Use this continuation summary:
 ...
 ```
 
+Use `continuation-handoff.md` to reconstruct state and resolve conflicts between control files and actual project files.
+
 ## Relationship To The Loop
 
 The kickoff protocol feeds:
 
 - `todo-execution.md` for ToDo structure.
+- `goal-completion-mode.md` for active-goal behavior.
 - `command-discovery.md` and `testing-strategy.md` for validation planning.
 - `review-subagent-loop.md` for review planning.
+- `persistent-memory.md` and `continuation-handoff.md` for durable continuation.
 - `final-report.md` for final report expectations.

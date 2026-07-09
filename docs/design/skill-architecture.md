@@ -8,6 +8,8 @@ The internal behavior is now defined around:
 Objective-driven autonomous development loop with safety gates
 ```
 
+Step 7 adds Goal Completion Mode, persistent project memory, continuation behavior, and cross-session handoff.
+
 ## Installation Targets
 
 The repository maintains two Skill entry points:
@@ -38,6 +40,7 @@ Each Skill target includes this reference set:
 
 - `references/objective-intake.md`
 - `references/kickoff-protocol.md`
+- `references/goal-completion-mode.md`
 - `references/autonomy-model.md`
 - `references/loop-protocol.md`
 - `references/todo-execution.md`
@@ -54,6 +57,8 @@ Each Skill target includes this reference set:
 - `references/review-subagent-loop.md`
 - `references/reviewer-roles.md`
 - `references/documentation-rules.md`
+- `references/persistent-memory.md`
+- `references/continuation-handoff.md`
 - `references/final-report.md`
 
 This keeps the Skill usable through progressive disclosure: the entry point gives the operating model, and agents load detailed references when a phase requires them.
@@ -79,6 +84,27 @@ The Skill guides agents through:
 The loop continues while there are unfinished ToDos inside the current objective.
 
 Completion requires relevant validation plus the Review Subagent Loop passing criteria, unless validation or review is unavailable and the limitation is explicitly documented.
+
+## Goal Completion Mode
+
+When the user invokes the Skill with a development objective, the agent treats that objective as the active goal and works toward completion.
+
+The user should not need to type `/goal`. Native goal or long-run platform workflows are optional: the agent may use them when they exist and are safe, but otherwise it emulates Goal Completion Mode through the Skill protocol.
+
+Goal Completion Mode is implemented through:
+
+- Objective Brief
+- Definition of Done
+- ToDos
+- Validation
+- Repair
+- Review Subagent Loop
+- Persistent project memory when useful
+- Final report and handoff
+
+The agent should not stop after planning unless the user requested planning only, a safety gate blocks progress, the objective is too ambiguous, access is missing, limits are reached, or a blocker prevents safe progress.
+
+Goal Completion Mode maps to the autonomy levels in `references/autonomy-model.md`, with `A3 — Autonomous With Safety Gates` as the default and `A4 — Continuous Autonomous Loop` reserved for explicit broad continuation requests.
 
 ## Intake And Kickoff Architecture
 
@@ -107,6 +133,34 @@ Reviewers are read-only by default. They analyze, score, identify risks, suggest
 Reviewer roles are documented in `references/reviewer-roles.md`.
 
 Review loop scoring and stop conditions are documented in `references/review-subagent-loop.md`.
+
+## Persistent Memory And Handoff
+
+Project control files are used as persistent memory only when they improve continuity, traceability, or safe continuation.
+
+The Skill recognizes these memory roles:
+
+- `AGENTS.md` and `CLAUDE.md` for persistent agent instructions.
+- `TODO.md` for active run state.
+- `DEVELOPMENT_LOG.md` for cycle history.
+- `FINAL_REPORT.md` for durable completion or partial completion reports.
+- `KNOWN_ISSUES.md` and `BACKLOG.md` for blockers, bugs, and out-of-scope findings.
+- `ROADMAP.md`, `TEST_PLAN.md`, and `DECISIONS.md` for durable project direction, validation strategy, and decisions.
+
+Continuation uses this priority:
+
+1. Explicit user instruction in the current prompt
+2. Current git status and actual files
+3. `TODO.md`
+4. `DEVELOPMENT_LOG.md`
+5. `FINAL_REPORT.md`
+6. `KNOWN_ISSUES.md`
+7. `BACKLOG.md`
+8. `ROADMAP.md`
+
+Actual current project state overrides stale control files.
+
+Cross-session handoff is documented in `references/continuation-handoff.md`.
 
 ## Behavioral Equivalence
 

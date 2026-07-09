@@ -44,6 +44,18 @@ If autonomy is ambiguous, state the assumed level before execution.
 
 Use A4 only when the user explicitly asks for a continuous autonomous loop across multiple internal cycles. A4 must remain inside the user-provided objective and must stop at safety gates.
 
+## Relationship To Goal Completion Mode
+
+Goal Completion Mode maps to autonomy levels:
+
+- `A0 — Manual`: goal planning only.
+- `A1 — Assisted`: goal analysis and proposed changes only.
+- `A2 — Supervised`: goal execution in supervised batches.
+- `A3 — Autonomous With Safety Gates`: default Goal Completion Mode with safety gates.
+- `A4 — Continuous Autonomous Loop`: continuous Goal Completion Mode across multiple internal cycles, bounded by the original objective.
+
+Do not require the user to type `/goal`. Use native goal or long-run platform features only when available and safe; otherwise emulate goal completion through ToDos, validation, review rounds, documentation, and final reporting.
+
 ## Autonomous Actions
 
 The agent may autonomously:
@@ -58,6 +70,7 @@ The agent may autonomously:
 - Update documentation and control files when useful
 - Run Review Subagent Loop rounds or independent review passes
 - Continue through ToDos until the objective is complete
+- Persist handoff information when work is incomplete or likely to continue
 
 ## Required Safety Gates
 

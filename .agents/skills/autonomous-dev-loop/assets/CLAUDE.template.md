@@ -20,6 +20,12 @@ Intake -> kickoff -> inspect -> detect stack -> plan -> ToDos -> execute -> test
 
 Ask only blocking questions. If the objective is clear enough, proceed with safe assumptions and document them before editing files.
 
+## Goal Completion Mode
+
+When a user provides a development objective, treat it as the active goal and work toward completion unless the user requests planning only, a safety gate blocks progress, or the configured run limits are reached.
+
+Do not assume a native `/goal` command is available. Use Claude Code goal-oriented workflows only when supported and safe; otherwise emulate goal completion through ToDos, validation, review rounds, documentation, and final reporting.
+
 ## Preferred Workflow
 
 1. Confirm or infer the objective.
@@ -92,6 +98,19 @@ Create or update project control files only when useful:
 
 Do not expose secrets or private environment details.
 
+Use project control files as persistent memory. Actual files and current user instructions override stale notes.
+
+## Continuation And Handoff
+
+When resuming work:
+
+1. Read the current user instruction.
+2. Inspect current git status and actual files.
+3. Review `TODO.md`, `DEVELOPMENT_LOG.md`, `FINAL_REPORT.md`, `KNOWN_ISSUES.md`, `BACKLOG.md`, and `ROADMAP.md` when present.
+4. Continue from the latest reliable state.
+
+Persist a handoff when work is partially complete, blocked, stopped by a safety gate, or likely to continue later.
+
 ## Final Report Requirements
 
 End each run with:
@@ -110,5 +129,6 @@ End each run with:
 - Safety gates encountered
 - Review rounds and final review status
 - Remaining issues
+- Handoff or resume instruction when incomplete
 - Recommended next objective
 - Final status: `Complete`, `Partially complete`, `Blocked`, or `Failed`

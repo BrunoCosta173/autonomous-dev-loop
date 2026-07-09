@@ -28,6 +28,8 @@ When the user invokes the Skill with a development objective:
 12. Create a ToDo list.
 13. Start the autonomous loop.
 
+Treat the parsed objective as the active goal through Goal Completion Mode unless the user explicitly requested planning only. See `goal-completion-mode.md`.
+
 ## Intake Categories
 
 ### 1. Objective
@@ -152,6 +154,19 @@ Inspect existing control files such as:
 - `FINAL_REPORT.md`
 
 Continue from the latest reliable state. If the latest state is ambiguous, ask the smallest blocking question needed to resume safely.
+
+Use this priority when reconstructing the latest reliable state:
+
+1. Explicit user instruction in the current prompt
+2. Current git status and actual files
+3. `TODO.md`
+4. `DEVELOPMENT_LOG.md`
+5. `FINAL_REPORT.md`
+6. `KNOWN_ISSUES.md`
+7. `BACKLOG.md`
+8. `ROADMAP.md`
+
+Actual files and current user instructions override stale control files. See `continuation-handoff.md`.
 
 ## When To Ask Questions
 

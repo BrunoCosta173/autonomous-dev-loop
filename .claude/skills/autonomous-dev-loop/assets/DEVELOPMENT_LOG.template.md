@@ -9,6 +9,7 @@ Use this file to record autonomous development cycles when durable continuity is
 Date:
 Objective:
 Autonomy level:
+Goal Completion Mode: [Active | Planning only | Supervised batches | Continuous autonomous loop]
 Status: [Complete | Partially complete | Blocked | Failed]
 
 ### Objective Brief
@@ -90,8 +91,24 @@ notes:
 
 ### Continuation Context
 
+- Active objective:
 - Latest reliable state:
+- Pending ToDos:
+- Blocked ToDos:
+- Pending blockers:
+- Review status:
 - Suggested resume point:
+
+### Handoff Summary
+
+```text
+Current status:
+Validation status:
+Safety gates:
+Known issues:
+Next recommended action:
+Resume instruction:
+```
 
 ### Next Recommended Objective
 

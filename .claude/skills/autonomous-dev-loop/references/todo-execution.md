@@ -2,6 +2,8 @@
 
 Use ToDos to turn the objective into executable work.
 
+In Goal Completion Mode, ToDos are the execution state for the active objective. The agent should work through every feasible ToDo inside scope before declaring completion.
+
 ## ToDo Format
 
 Recommended fields:
@@ -60,6 +62,7 @@ Prioritize ToDos by:
 - Prefer an in-response ToDo list for small tasks.
 - Prefer `TODO.md` for longer runs, interrupted work, or handoff between sessions.
 - Tie every ToDo to the Objective Brief or documented continuation context.
+- Preserve pending, blocked, and deferred ToDos for continuation when the run cannot complete.
 
 ## Validation
 
@@ -72,3 +75,16 @@ Each ToDo should have a validation method, such as:
 - Documentation review
 
 Do not mark a ToDo done if its validation was skipped without documenting why.
+
+## Continuation Fields
+
+For persistent `TODO.md`, include:
+
+- Active objective
+- Goal Completion Mode status
+- Latest reliable state
+- Pending blockers
+- Review status
+- Resume instruction when the work continues later
+
+Actual project files and current user instructions override stale ToDo state.

@@ -14,6 +14,12 @@ Use this file to preserve the final report for an autonomous development run whe
 A0 | A1 | A2 | A3 | A4
 ```
 
+## Goal Completion Mode
+
+```text
+Active | Planning only | Supervised batches | Continuous autonomous loop
+```
+
 ## Starting Context
 
 ```text
@@ -161,8 +167,27 @@ Passed | Passed with deferred suggestions | Blocked | Failed
 ## Continuation Context
 
 ```text
+Active objective:
 Latest reliable state:
+Pending blockers:
+Review status:
 Resume from:
+```
+
+## Handoff Summary
+
+Use this section when the objective is partially complete, blocked, failed, or likely to continue.
+
+```text
+Current status:
+Completed ToDos:
+Pending ToDos:
+Blocked ToDos:
+Validation status:
+Safety gates:
+Known issues:
+Next recommended action:
+Resume instruction:
 ```
 
 ## Recommended Next Objective

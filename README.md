@@ -12,7 +12,7 @@ Objective intake -> project inspection -> planning -> ToDo generation -> executi
 
 This project is in initial planning and Skill architecture definition.
 
-The final public README, installer scripts, and complete example projects have not been created yet. The current repository documents the foundation decisions, prepares the official version `0.0.1` repository structure, and defines the initial internal Skill behavior.
+The final public README, installer scripts, and complete example projects have not been created yet. The current repository documents the foundation decisions, prepares the official version `0.0.x` repository structure, and defines the initial internal Skill behavior through Goal Completion Mode, safety gates, review rounds, and cross-session handoff.
 
 ## Intended Users
 
@@ -58,6 +58,8 @@ The project is based on:
 
 Agents should be able to plan, execute, test, repair, and document software tasks autonomously, while stopping for human confirmation before high-risk actions such as destructive commands, deployment, secret handling, data-loss migrations, authentication changes, major rewrites, framework replacement, ambiguous product decisions, or business-critical rule changes.
 
+When invoked with a development objective, the Skill treats that objective as the active goal. Native goal features such as `/goal` are optional platform capabilities, not assumed universal behavior.
+
 ## Scope
 
 The skill should be generic and stack-agnostic. It should support many project types, including web apps, APIs, CLIs, mobile apps, monorepos, internal tools, SaaS products, automation scripts, and full-stack projects.
@@ -74,6 +76,7 @@ Rather than assuming a default stack, the skill should teach agents to inspect t
 - [Step 4 stack detection and command discovery](docs/planning/STEP_4_STACK_DETECTION_COMMAND_DISCOVERY.md)
 - [Step 5 autonomy, safety, and review loop](docs/planning/STEP_5_AUTONOMY_SAFETY_REVIEW_LOOP.md)
 - [Step 6 objective intake and kickoff](docs/planning/STEP_6_OBJECTIVE_INTAKE_KICKOFF.md)
+- [Step 7 goal memory handoff](docs/planning/STEP_7_GOAL_MEMORY_HANDOFF.md)
 - [Repository structure design](docs/design/repository-structure.md)
 - [Skill architecture design](docs/design/skill-architecture.md)
 - [Changelog](CHANGELOG.md)
