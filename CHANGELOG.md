@@ -4,6 +4,24 @@ All notable changes to this project will be documented in this file.
 
 This project uses semantic versioning.
 
+## 0.1.2
+
+### Changed
+
+- Improved README clarity and human-facing polish.
+- Added "What this installs" section with target-to-file table.
+- Added "What it does" section with plain-English workflow breakdown.
+- Added "How to use it after installing" section with example prompt.
+- Added "When to use it" and "When not to use it" sections.
+- Improved "How the loop works" with a visual ASCII flow diagram.
+- Improved safety model explanation with explicit categories.
+- Added "Project control files" section with purpose table.
+- Added "Review before done" section with review cycle flow.
+- Expanded usage examples to 4 including A0 review-only and continuation modes.
+- Updated version references from `0.1.1` to `0.1.2`.
+- Added Step 15 planning documentation.
+- Added `0.1.2` release notes.
+
 ## 0.1.1
 
 ### Added

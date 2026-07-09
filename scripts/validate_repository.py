@@ -13,7 +13,7 @@ from check_skill_equivalence import compare_skill_targets
 
 
 ROOT = Path(__file__).resolve().parents[1]
-CURRENT_VERSION = "0.1.1"
+CURRENT_VERSION = "0.1.2"
 
 CODEX_SKILL = ROOT / ".agents" / "skills" / "autonomous-dev-loop"
 CLAUDE_SKILL = ROOT / ".claude" / "skills" / "autonomous-dev-loop"
@@ -43,7 +43,7 @@ REQUIRED_REPOSITORY_DOCS = [
     "docs/design/validation-strategy.md",
     "docs/design/release-readiness.md",
     "docs/release/RELEASE_CANDIDATE_CHECKLIST.md",
-    "docs/release/RELEASE_NOTES_0.1.1.md",
+    "docs/release/RELEASE_NOTES_0.1.2.md",
     "docs/release/PR_DESCRIPTION_DRAFT.md",
 ]
 
@@ -93,6 +93,7 @@ REQUIRED_PLANNING_DOCS = [
     "docs/planning/STEP_11_RELEASE_CANDIDATE_README.md",
     "docs/planning/STEP_12_FINAL_PRE_MERGE_REVIEW.md",
     "docs/planning/STEP_14_POST_RELEASE_AUDIT_FIXES.md",
+    "docs/planning/STEP_15_README_CLARITY.md",
 ]
 
 REQUIRED_EXAMPLES = [
