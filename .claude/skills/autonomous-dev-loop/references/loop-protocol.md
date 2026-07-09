@@ -43,7 +43,9 @@ Stop when:
 
 ### Intake
 
-Clarify the objective only as much as needed to execute safely. Record assumptions before file edits.
+Clarify the objective only as much as needed to execute safely. Ask only blocking questions. Record assumptions before file edits.
+
+Read `objective-intake.md` and `kickoff-protocol.md`.
 
 ### Inspect
 
@@ -62,7 +64,9 @@ Read `stack-detection.md`, then `command-discovery.md`, then the relevant stack 
 
 ### Plan
 
-Create a short execution plan tied directly to the objective.
+Create a short execution plan tied directly to the objective, then produce a concise kickoff when appropriate.
+
+The kickoff should include the Objective Brief, assumptions, execution plan, initial ToDos, validation plan, review plan, and safety gates to watch.
 
 ### Generate ToDos
 

@@ -20,6 +20,15 @@ A0 | A1 | A2 | A3 | A4
 
 ```
 
+## Objective Brief
+
+```text
+Target area:
+Desired outcome:
+Non-goals:
+Definition of done:
+```
+
 ## Assumptions
 
 ```text
@@ -30,6 +39,18 @@ A0 | A1 | A2 | A3 | A4
 
 ```text
 1.
+```
+
+## Validation Plan
+
+```text
+-
+```
+
+## Review Plan
+
+```text
+-
 ```
 
 ## ToDos Completed
@@ -125,10 +146,23 @@ notes:
 Passed | Passed with deferred suggestions | Blocked | Failed
 ```
 
+## Definition Of Done Assessment
+
+```text
+
+```
+
 ## Remaining Issues
 
 ```text
 -
+```
+
+## Continuation Context
+
+```text
+Latest reliable state:
+Resume from:
 ```
 
 ## Recommended Next Objective

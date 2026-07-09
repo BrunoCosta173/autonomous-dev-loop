@@ -20,16 +20,18 @@ Require a user-provided development objective. If the objective is too vague, as
 Follow this loop:
 
 1. Intake
-2. Inspect
-3. Detect stack
-4. Plan
-5. Generate ToDos
-6. Execute
-7. Test
-8. Repair
-9. Document
-10. Report
-11. Continue or stop
+2. Kickoff
+3. Inspect
+4. Detect stack
+5. Plan
+6. Generate ToDos
+7. Execute
+8. Test
+9. Repair
+10. Review
+11. Document
+12. Report
+13. Continue or stop
 
 Continue while unfinished ToDos remain inside the current objective. Do not drift into unrelated scope. Before declaring completion, run the Review Subagent Loop or independent review passes when real subagents are unavailable.
 
@@ -42,6 +44,7 @@ Use autonomous execution for safe, objective-scoped work. Stop for human confirm
 Load the relevant reference file for each phase:
 
 - `references/objective-intake.md`: objective intake, assumptions, and blocking questions.
+- `references/kickoff-protocol.md`: Objective Brief, kickoff response, and continuation kickoff formats.
 - `references/autonomy-model.md`: allowed autonomous actions and confirmation boundaries.
 - `references/loop-protocol.md`: complete loop protocol and stop conditions.
 - `references/todo-execution.md`: ToDo format, statuses, prioritization, and validation.

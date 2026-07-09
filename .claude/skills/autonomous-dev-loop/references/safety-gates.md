@@ -23,6 +23,15 @@ Stop and request human confirmation before:
 - Removing tests to make validation pass
 - Disabling validation tools or CI checks
 
+During intake, treat likely safety-gated areas as blocking questions only when the agent cannot proceed safely with a conservative assumption.
+
+Default conservative assumptions:
+
+- Database changes are not allowed unless requested or approved.
+- Authentication and authorization changes are not allowed unless requested or approved.
+- Secret and environment variable handling is not allowed unless requested or approved.
+- Deployment is not allowed unless requested or approved.
+
 ## Confirmation Request Format
 
 When a safety gate is reached, report:

@@ -11,6 +11,13 @@ Objective:
 Autonomy level:
 Status: [Complete | Partially complete | Blocked | Failed]
 
+### Objective Brief
+
+- Target area:
+- Desired outcome:
+- Non-goals:
+- Definition of done:
+
 ### Assumptions
 
 -
@@ -18,6 +25,14 @@ Status: [Complete | Partially complete | Blocked | Failed]
 ### Plan
 
 1.
+
+### Validation Plan
+
+-
+
+### Review Plan
+
+-
 
 ### ToDos Executed
 
@@ -72,6 +87,11 @@ notes:
 ### Remaining Issues
 
 -
+
+### Continuation Context
+
+- Latest reliable state:
+- Suggested resume point:
 
 ### Next Recommended Objective
 

@@ -4,6 +4,15 @@ All notable changes to this project will be documented in this file.
 
 This project uses semantic versioning.
 
+## 0.0.6
+
+### Added
+
+- Added the objective intake questionnaire, intake modes, and ask-only-blocking-questions policy.
+- Added the autonomous run kickoff protocol with Objective Brief, kickoff response, and continuation kickoff formats.
+- Clarified assumption handling, default A3 autonomy, and A4 usage only for explicitly requested continuous autonomous loops.
+- Updated project control templates to capture Objective Brief, definition of done, validation plan, review plan, and continuation context.
+
 ## 0.0.5
 
 ### Added

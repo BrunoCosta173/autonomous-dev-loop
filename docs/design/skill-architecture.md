@@ -37,6 +37,7 @@ Detailed procedures belong in `references/`, not in `SKILL.md`.
 Each Skill target includes this reference set:
 
 - `references/objective-intake.md`
+- `references/kickoff-protocol.md`
 - `references/autonomy-model.md`
 - `references/loop-protocol.md`
 - `references/todo-execution.md`
@@ -62,21 +63,32 @@ This keeps the Skill usable through progressive disclosure: the entry point give
 The Skill guides agents through:
 
 1. Intake
-2. Inspect
-3. Detect stack
-4. Plan
-5. Generate ToDos
-6. Execute
-7. Test
-8. Repair
-9. Review
-10. Document
-11. Report
-12. Continue or stop
+2. Kickoff
+3. Inspect
+4. Detect stack
+5. Plan
+6. Generate ToDos
+7. Execute
+8. Test
+9. Repair
+10. Review
+11. Document
+12. Report
+13. Continue or stop
 
 The loop continues while there are unfinished ToDos inside the current objective.
 
 Completion requires relevant validation plus the Review Subagent Loop passing criteria, unless validation or review is unavailable and the limitation is explicitly documented.
+
+## Intake And Kickoff Architecture
+
+The Skill starts each autonomous run by parsing the objective, asking only blocking questions, recording assumptions, and producing a concise Objective Brief and kickoff when appropriate.
+
+The intake model is documented in `references/objective-intake.md`.
+
+The Objective Brief, kickoff response, and continuation kickoff formats are documented in `references/kickoff-protocol.md`.
+
+The default autonomy level is `A3 — Autonomous With Safety Gates`. `A4 — Continuous Autonomous Loop` is used only when explicitly requested and must remain inside the user-provided objective.
 
 ## Review Architecture
 

@@ -15,7 +15,7 @@ Copy this template into a user project as `CLAUDE.md`.
 Follow an objective-driven autonomous development loop with safety gates:
 
 ```text
-Intake -> inspect -> detect stack -> plan -> ToDos -> execute -> test -> repair -> document -> final report
+Intake -> kickoff -> inspect -> detect stack -> plan -> ToDos -> execute -> test -> repair -> review -> document -> final report
 ```
 
 Ask only blocking questions. If the objective is clear enough, proceed with safe assumptions and document them before editing files.
@@ -23,14 +23,23 @@ Ask only blocking questions. If the objective is clear enough, proceed with safe
 ## Preferred Workflow
 
 1. Confirm or infer the objective.
-2. Inspect the relevant project files.
-3. Detect the stack and available commands.
-4. Create a short plan and executable ToDo list.
-5. Execute all feasible ToDos within scope.
-6. Run relevant validation commands.
-7. Repair failures caused by current changes.
-8. Document durable context when useful.
-9. Produce a final report.
+2. Create a concise kickoff for non-trivial tasks.
+3. Inspect the relevant project files.
+4. Detect the stack and available commands.
+5. Create a short plan and executable ToDo list.
+6. Execute all feasible ToDos within scope.
+7. Run relevant validation commands.
+8. Repair failures caused by current changes.
+9. Run review rounds before declaring completion.
+10. Document durable context when useful.
+11. Produce a final report.
+
+## Intake Defaults
+
+- Use `A3 — Autonomous With Safety Gates` by default.
+- Use `A4 — Continuous Autonomous Loop` only when explicitly requested.
+- Ask only when the missing answer affects safety, scope, data integrity, business-critical behavior, or definition of done.
+- Record assumptions before execution.
 
 ## Commands
 
@@ -99,6 +108,7 @@ End each run with:
 - Errors found
 - Repairs applied
 - Safety gates encountered
+- Review rounds and final review status
 - Remaining issues
 - Recommended next objective
 - Final status: `Complete`, `Partially complete`, `Blocked`, or `Failed`

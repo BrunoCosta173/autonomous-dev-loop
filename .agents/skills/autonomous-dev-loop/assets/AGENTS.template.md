@@ -25,10 +25,18 @@ Before changing files:
 Use an objective-driven autonomous development loop:
 
 ```text
-Objective intake -> inspect -> detect stack -> plan -> generate ToDos -> execute -> test -> repair -> document -> report
+Objective intake -> kickoff -> inspect -> detect stack -> plan -> generate ToDos -> execute -> test -> repair -> review -> document -> report
 ```
 
 Stay anchored to the user-provided objective. Do not switch to unrelated scope without confirmation.
+
+## Intake And Kickoff
+
+- Ask only blocking questions.
+- Proceed with safe assumptions when missing information can be inferred or safely documented.
+- Use `A3 — Autonomous With Safety Gates` by default.
+- Use `A4 — Continuous Autonomous Loop` only when explicitly requested.
+- Produce a concise kickoff for non-trivial tasks, including objective, assumptions, plan, ToDos, validation plan, review plan, and safety gates to watch.
 
 ## Planning Expectations
 
@@ -45,6 +53,13 @@ Stay anchored to the user-provided objective. Do not switch to unrelated scope w
 - Run relevant tests, build, lint, typecheck, or other checks when available.
 - Never claim tests passed unless they actually ran.
 - If validation is unavailable or skipped, state why.
+
+## Review Expectations
+
+- Run review rounds before declaring non-trivial implementation work complete.
+- Use real review subagents when supported.
+- Use independent review passes when real subagents are unavailable.
+- Keep reviewers read-only unless the user explicitly authorizes multi-agent editing.
 
 ## Documentation Expectations
 

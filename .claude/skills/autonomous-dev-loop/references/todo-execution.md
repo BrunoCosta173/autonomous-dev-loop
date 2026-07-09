@@ -13,6 +13,7 @@ Recommended fields:
 - Files likely affected
 - Status
 - Validation method
+- Assumptions or dependencies, when relevant
 
 For a persistent multi-step run, copy or adapt `assets/TODO.template.md` into the target project as `TODO.md` when it improves continuity.
 
@@ -58,6 +59,7 @@ Prioritize ToDos by:
 - Do not add unrelated ToDos to the active execution list.
 - Prefer an in-response ToDo list for small tasks.
 - Prefer `TODO.md` for longer runs, interrupted work, or handoff between sessions.
+- Tie every ToDo to the Objective Brief or documented continuation context.
 
 ## Validation
 

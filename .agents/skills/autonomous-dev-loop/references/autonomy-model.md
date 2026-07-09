@@ -42,6 +42,8 @@ Use A3 unless the user specifies a different autonomy level or the environment r
 
 If autonomy is ambiguous, state the assumed level before execution.
 
+Use A4 only when the user explicitly asks for a continuous autonomous loop across multiple internal cycles. A4 must remain inside the user-provided objective and must stop at safety gates.
+
 ## Autonomous Actions
 
 The agent may autonomously:

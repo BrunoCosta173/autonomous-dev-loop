@@ -50,9 +50,11 @@ After the main agent implements the planned scope and runs relevant validation:
 Provide reviewers with:
 
 - Original objective
+- Objective Brief
 - Autonomy level
 - Scope summary
 - Non-goals
+- Definition of done
 - Changed files
 - Validation commands and results
 - Known constraints

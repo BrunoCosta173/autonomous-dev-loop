@@ -2,6 +2,48 @@
 
 Use this file as the active execution plan for the current autonomous run.
 
+## Objective Brief
+
+```text
+Objective:
+Target area:
+Desired outcome:
+Autonomy level:
+Definition of done:
+```
+
+## Assumptions
+
+```text
+-
+```
+
+## Safety Gates To Watch
+
+```text
+-
+```
+
+## Validation Plan
+
+```text
+-
+```
+
+## Review Plan
+
+```text
+-
+```
+
+## Continuation Context
+
+```text
+Previous run:
+Latest reliable state:
+Known blockers:
+```
+
 ## Status Values
 
 - Pending

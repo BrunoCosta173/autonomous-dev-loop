@@ -9,8 +9,10 @@ For a persistent report, copy or adapt `assets/FINAL_REPORT.template.md` into th
 Report:
 
 - Objective
+- Starting context or Objective Brief summary
 - Autonomy level used
 - Assumptions
+- Definition of done
 - Plan
 - ToDos executed
 - Files changed
@@ -50,6 +52,8 @@ Use one of:
 - Mention safety gates even if they were only encountered and not approved.
 - Include review rounds, reviewer scores, required fixes, deferred suggestions, and final review status.
 - Mention assumptions that influenced implementation.
+- Mention any assumptions that replaced non-blocking intake questions.
+- State whether the definition of done was met.
 - Keep the report concise but complete enough for another agent or developer to continue.
 - Prefer the chat final report for small runs.
 - Prefer `FINAL_REPORT.md` for longer runs, blocked work, or handoffs across sessions.
