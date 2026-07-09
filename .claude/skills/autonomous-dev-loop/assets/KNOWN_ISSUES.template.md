@@ -11,6 +11,8 @@ Severity: [Critical | High | Medium | Low]
 Area:
 Status: [Open | In progress | Blocked | Resolved | Deferred]
 Owner:
+Source: [Review | Validation | User report | Other]
+Safety gate: [None | Required | Resolved]
 
 ### Description
 
@@ -35,4 +37,14 @@ Describe any safe temporary workaround, if available.
 ### Next Action
 
 Describe the next concrete step.
+
+### Review Context
+
+```text
+Reviewer:
+Round:
+Score impact:
+Required fix:
+Deferred reason:
+```
 ```

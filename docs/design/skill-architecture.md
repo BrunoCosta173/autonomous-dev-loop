@@ -50,6 +50,8 @@ Each Skill target includes this reference set:
 - `references/infra-playbooks.md`
 - `references/testing-strategy.md`
 - `references/repair-strategy.md`
+- `references/review-subagent-loop.md`
+- `references/reviewer-roles.md`
 - `references/documentation-rules.md`
 - `references/final-report.md`
 
@@ -67,11 +69,32 @@ The Skill guides agents through:
 6. Execute
 7. Test
 8. Repair
-9. Document
-10. Report
-11. Continue or stop
+9. Review
+10. Document
+11. Report
+12. Continue or stop
 
 The loop continues while there are unfinished ToDos inside the current objective.
+
+Completion requires relevant validation plus the Review Subagent Loop passing criteria, unless validation or review is unavailable and the limitation is explicitly documented.
+
+## Review Architecture
+
+The Review Subagent Loop is a quality gate after implementation and validation.
+
+Primary mode:
+
+- Use real review subagents when supported by the current agent environment.
+
+Fallback mode:
+
+- Run independent review passes using the same reviewer roles and rubrics when real subagents are unavailable.
+
+Reviewers are read-only by default. They analyze, score, identify risks, suggest corrections, flag safety gates, and recommend approval outcomes. The main agent remains responsible for applying corrections.
+
+Reviewer roles are documented in `references/reviewer-roles.md`.
+
+Review loop scoring and stop conditions are documented in `references/review-subagent-loop.md`.
 
 ## Behavioral Equivalence
 

@@ -17,6 +17,7 @@ Use this file as the active execution plan for the current autonomous run.
 
 Priority: [High | Medium | Low]
 Status: [Pending | In progress | Done | Blocked | Deferred]
+Review status: [Not reviewed | Passed | Needs fixes | Blocked]
 
 ### Rationale
 
@@ -30,6 +31,13 @@ Why this task matters for the current objective.
 
 Describe the command, test, inspection, or manual validation that proves this task is complete.
 
+### Review Notes
+
+- Reviewer:
+  Score:
+  Required fixes:
+  Deferred suggestions:
+
 ### Notes
 
 - 
@@ -42,12 +50,15 @@ Describe the command, test, inspection, or manual validation that proves this ta
 
 Priority:
 Status:
+Review status:
 
 ### Rationale
 
 ### Files Likely Affected
 
 ### Validation Method
+
+### Review Notes
 
 ### Notes
 ```

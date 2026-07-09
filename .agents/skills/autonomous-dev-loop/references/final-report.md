@@ -9,6 +9,7 @@ For a persistent report, copy or adapt `assets/FINAL_REPORT.template.md` into th
 Report:
 
 - Objective
+- Autonomy level used
 - Assumptions
 - Plan
 - ToDos executed
@@ -19,6 +20,13 @@ Report:
 - Errors found
 - Repairs applied
 - Safety gates encountered
+- Review subagents or review passes used
+- Number of review rounds
+- Reviewer scores per round
+- Average score per round
+- Required fixes applied
+- Suggestions deferred and why
+- Final review status
 - Remaining issues
 - Recommended next objective
 - Final status
@@ -40,6 +48,7 @@ Use one of:
 - If commands were unavailable or not run, say why.
 - Distinguish failures caused by current work from pre-existing or unrelated failures.
 - Mention safety gates even if they were only encountered and not approved.
+- Include review rounds, reviewer scores, required fixes, deferred suggestions, and final review status.
 - Mention assumptions that influenced implementation.
 - Keep the report concise but complete enough for another agent or developer to continue.
 - Prefer the chat final report for small runs.

@@ -4,6 +4,16 @@ All notable changes to this project will be documented in this file.
 
 This project uses semantic versioning.
 
+## 0.0.5
+
+### Added
+
+- Added detailed autonomy levels from A0 manual mode through A4 continuous autonomous loop.
+- Added the Review Subagent Loop with real-subagent primary mode and independent-review fallback mode.
+- Added reviewer roles, scoring policy, review round limits, and review-driven stop conditions.
+- Expanded safety gates and approval policies for critical dependencies, licensing, tests, and validation tooling.
+- Updated final report and project control templates to capture review rounds, scores, required fixes, deferred suggestions, and final review status.
+
 ## 0.0.4
 
 ### Added

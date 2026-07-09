@@ -8,6 +8,12 @@ Use this file to preserve the final report for an autonomous development run whe
 
 ```
 
+## Autonomy Level Used
+
+```text
+A0 | A1 | A2 | A3 | A4
+```
+
 ## Starting Context
 
 ```text
@@ -17,13 +23,13 @@ Use this file to preserve the final report for an autonomous development run whe
 ## Assumptions
 
 ```text
-- 
+-
 ```
 
 ## Plan
 
 ```text
-1. 
+1.
 ```
 
 ## ToDos Completed
@@ -46,7 +52,7 @@ Use this file to preserve the final report for an autonomous development run whe
 ## Files Changed
 
 ```text
-- 
+-
 ```
 
 ## Commands Run
@@ -66,13 +72,13 @@ notes:
 ## Errors Found
 
 ```text
-- 
+-
 ```
 
 ## Repairs Applied
 
 ```text
-- 
+-
 ```
 
 ## Safety Gates Encountered
@@ -83,10 +89,46 @@ notes:
   Result:
 ```
 
+## Review Subagents Or Review Passes
+
+```text
+- Reviewer:
+  Mode: [Subagent | Independent review pass]
+```
+
+## Review Rounds
+
+```text
+- Round:
+  Reviewer scores:
+  Average score:
+  Required fixes:
+  Validation after fixes:
+```
+
+## Required Fixes Applied
+
+```text
+-
+```
+
+## Suggestions Deferred
+
+```text
+- Suggestion:
+  Reason:
+```
+
+## Final Review Status
+
+```text
+Passed | Passed with deferred suggestions | Blocked | Failed
+```
+
 ## Remaining Issues
 
 ```text
-- 
+-
 ```
 
 ## Recommended Next Objective

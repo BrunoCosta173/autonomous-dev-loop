@@ -13,11 +13,11 @@ Status: [Complete | Partially complete | Blocked | Failed]
 
 ### Assumptions
 
-- 
+-
 
 ### Plan
 
-1. 
+1.
 
 ### ToDos Executed
 
@@ -28,7 +28,7 @@ Status: [Complete | Partially complete | Blocked | Failed]
 
 ### Files Changed
 
-- 
+-
 
 ### Commands Run
 
@@ -40,11 +40,28 @@ notes:
 
 ### Test Results
 
-- 
+-
+
+### Review Rounds
+
+- Round:
+  Reviewers:
+  Scores:
+  Average score:
+  Final review status:
+
+### Required Fixes From Review
+
+-
+
+### Deferred Review Suggestions
+
+- Suggestion:
+  Reason deferred:
 
 ### Repairs Applied
 
-- 
+-
 
 ### Safety Gates Encountered
 
@@ -54,8 +71,8 @@ notes:
 
 ### Remaining Issues
 
-- 
+-
 
 ### Next Recommended Objective
 
-- 
+-

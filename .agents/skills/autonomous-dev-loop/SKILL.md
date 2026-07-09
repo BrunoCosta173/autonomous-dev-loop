@@ -31,7 +31,7 @@ Follow this loop:
 10. Report
 11. Continue or stop
 
-Continue while unfinished ToDos remain inside the current objective. Do not drift into unrelated scope.
+Continue while unfinished ToDos remain inside the current objective. Do not drift into unrelated scope. Before declaring completion, run the Review Subagent Loop or independent review passes when real subagents are unavailable.
 
 ## Safety Gates
 
@@ -55,6 +55,8 @@ Load the relevant reference file for each phase:
 - `references/infra-playbooks.md`: Docker, CI, deployment config, and infrastructure playbooks.
 - `references/testing-strategy.md`: command selection and validation reporting.
 - `references/repair-strategy.md`: failure triage and repair rules.
+- `references/review-subagent-loop.md`: review rounds, scoring, correction cycles, and completion quality gates.
+- `references/reviewer-roles.md`: reviewer selection rules and role rubrics.
 - `references/documentation-rules.md`: project control file guidance.
 - `references/final-report.md`: required final report structure.
 

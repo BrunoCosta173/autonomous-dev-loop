@@ -12,9 +12,10 @@ Use this protocol for each autonomous development run.
 6. Execute
 7. Test
 8. Repair
-9. Document
-10. Report
-11. Continue or stop
+9. Review
+10. Document
+11. Report
+12. Continue or stop
 
 ## Loop Rules
 
@@ -22,6 +23,21 @@ Use this protocol for each autonomous development run.
 - Do not switch to unrelated scope.
 - If unrelated issues are discovered, record them instead of fixing them immediately.
 - Stop when the objective is complete, blocked by a safety gate, blocked by missing information, or no feasible ToDos remain.
+- Do not declare completion until relevant validation has run or been documented as unavailable, and the Review Subagent Loop passing criteria are met.
+
+## Stop Conditions
+
+Stop when:
+
+- The objective is complete.
+- The ToDo list is complete or all remaining items are blocked/deferred.
+- Validation commands pass or failures are clearly unrelated and documented.
+- Review Subagent Loop passing criteria are met.
+- A safety gate requires human approval.
+- The maximum review rounds are reached.
+- The same issue repeats twice without progress.
+- The objective becomes too broad or ambiguous.
+- The user's defined budget, time, or command constraints are reached.
 
 ## Phase Guidance
 
@@ -67,6 +83,14 @@ Choose the smallest relevant validation command first, then broaden only when ri
 ### Repair
 
 Fix failures caused by current changes. Document unrelated failures separately.
+
+### Review
+
+Run the Review Subagent Loop after implementation and validation, before declaring scope complete.
+
+Use real review subagents when the environment supports them. If real subagents are unavailable, run independent review passes using the same reviewer roles and rubrics.
+
+Read `review-subagent-loop.md` and `reviewer-roles.md`.
 
 ### Document
 
