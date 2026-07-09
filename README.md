@@ -10,7 +10,7 @@ Objective intake -> project inspection -> planning -> ToDo generation -> executi
 
 ## Status
 
-This project is in initial planning and Skill architecture definition.
+This project is in initial planning, Skill architecture definition, and first public installation documentation.
 
 The final public README, installer scripts, and complete example projects have not been created yet. The current repository documents the foundation decisions, prepares the official version `0.0.x` repository structure, and defines the initial internal Skill behavior through Goal Completion Mode, safety gates, review rounds, and cross-session handoff.
 
@@ -33,9 +33,9 @@ The project is also intended to support:
 - Claude Code Desktop
 - Generic AI coding agents
 
-## Installation Strategy
+## Installation Overview
 
-Version `0.0.1` uses a dual installation strategy:
+The project uses a dual Skill installation strategy:
 
 - Codex/OpenAI Skills: `.agents/skills/autonomous-dev-loop/`
 - Claude Code Skills: `.claude/skills/autonomous-dev-loop/`
@@ -48,7 +48,39 @@ For generic agents, reusable project-local adapter templates live in:
 adapters/
 ```
 
-Manual copy installation and agent-assisted installation are planned for the first usable versions. Terminal installer scripts are intentionally deferred.
+Manual copy installation and agent-assisted installation are documented. Terminal installer scripts are intentionally deferred.
+
+Start here:
+
+- [Codex/OpenAI installation](docs/installation/codex-openai.md)
+- [Claude Code installation](docs/installation/claude-code.md)
+- [Generic agent installation](docs/installation/generic-agents.md)
+- [Agent-assisted installation](docs/installation/agent-assisted-installation.md)
+- [Troubleshooting](docs/installation/troubleshooting.md)
+
+## Compatibility Overview
+
+The project currently documents compatibility expectations for:
+
+- Codex/OpenAI Skills
+- Claude Code Skills
+- Generic AI coding agents
+
+Native goal modes and real review subagents are environment-dependent. The Skill always defines fallback behavior through Goal Completion Mode, ToDos, validation, independent review passes, persistent memory, and final reporting.
+
+See the [compatibility matrix](docs/design/compatibility-matrix.md).
+
+## Quick Usage Example
+
+After installation, invoke the Skill with a scoped objective:
+
+```text
+Use autonomous-dev-loop to improve the user settings page.
+Focus on UI consistency, form validation, loading states, and accessibility.
+Do not change database schema, authentication, or dependencies.
+Run available lint, typecheck, and build commands.
+Use A3 autonomy.
+```
 
 ## Autonomy Model
 
@@ -77,9 +109,20 @@ Rather than assuming a default stack, the skill should teach agents to inspect t
 - [Step 5 autonomy, safety, and review loop](docs/planning/STEP_5_AUTONOMY_SAFETY_REVIEW_LOOP.md)
 - [Step 6 objective intake and kickoff](docs/planning/STEP_6_OBJECTIVE_INTAKE_KICKOFF.md)
 - [Step 7 goal memory handoff](docs/planning/STEP_7_GOAL_MEMORY_HANDOFF.md)
+- [Step 8 packaging, installation, and examples](docs/planning/STEP_8_PACKAGING_INSTALLATION_EXAMPLES.md)
 - [Repository structure design](docs/design/repository-structure.md)
 - [Skill architecture design](docs/design/skill-architecture.md)
+- [Packaging strategy](docs/design/packaging-strategy.md)
+- [Compatibility matrix](docs/design/compatibility-matrix.md)
 - [Changelog](CHANGELOG.md)
+
+## Examples
+
+Lightweight usage examples:
+
+- [Next.js app](examples/nextjs-app/README.md)
+- [FastAPI API](examples/fastapi-api/README.md)
+- [Laravel app](examples/laravel-app/README.md)
 
 ## License
 

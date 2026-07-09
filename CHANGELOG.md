@@ -4,6 +4,16 @@ All notable changes to this project will be documented in this file.
 
 This project uses semantic versioning.
 
+## 0.0.8
+
+### Added
+
+- Added public installation documentation for Codex/OpenAI, Claude Code, generic agents, agent-assisted installation, and troubleshooting.
+- Added packaging strategy documentation for repository, Skill target, and adapter package boundaries.
+- Added compatibility matrix covering Skill folder support, persistent instruction files, Review Subagent Loop support, fallbacks, and best use cases.
+- Added lightweight usage examples for Next.js, FastAPI, and Laravel projects.
+- Updated the README with installation, compatibility, usage, and example links while keeping it in draft form.
+
 ## 0.0.7
 
 ### Added

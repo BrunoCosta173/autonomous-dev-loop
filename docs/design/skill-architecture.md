@@ -8,7 +8,9 @@ The internal behavior is now defined around:
 Objective-driven autonomous development loop with safety gates
 ```
 
-Step 7 adds Goal Completion Mode, persistent project memory, continuation behavior, and cross-session handoff.
+Step 7 added Goal Completion Mode, persistent project memory, continuation behavior, and cross-session handoff.
+
+Step 8 adds public packaging, installation, compatibility, troubleshooting, and first usage example documentation.
 
 ## Installation Targets
 
@@ -18,6 +20,18 @@ The repository maintains two Skill entry points:
 - Claude Code: `.claude/skills/autonomous-dev-loop/SKILL.md`
 
 Each target exists because different agent environments may expect different local installation paths and project conventions.
+
+Installation documentation:
+
+- `docs/installation/codex-openai.md`
+- `docs/installation/claude-code.md`
+- `docs/installation/generic-agents.md`
+- `docs/installation/agent-assisted-installation.md`
+- `docs/installation/troubleshooting.md`
+
+Packaging boundaries are documented in `docs/design/packaging-strategy.md`.
+
+Compatibility expectations are documented in `docs/design/compatibility-matrix.md`.
 
 ## Entry Point Design
 
@@ -218,6 +232,18 @@ Current templates:
 The Skill should not force every template into every project. It should create or suggest templates based on the current objective, project context, missing documentation, and whether durable continuity is useful.
 
 The template usage policy is documented in `references/documentation-rules.md`.
+
+## Public Usage Examples
+
+The `examples/` directory contains lightweight usage documentation, not complete apps.
+
+Current examples:
+
+- `examples/nextjs-app/README.md`
+- `examples/fastapi-api/README.md`
+- `examples/laravel-app/README.md`
+
+Each example includes an objective prompt, suggested constraints, expected Skill behavior, example validation commands, expected final report content, and safety gates to watch.
 
 ## Deferred Sync Strategy
 
