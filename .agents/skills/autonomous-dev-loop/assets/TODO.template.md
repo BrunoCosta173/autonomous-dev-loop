@@ -71,7 +71,7 @@ Why this task matters for the current objective.
 
 ### Files Likely Affected
 
-- 
+-
 
 ### Validation Method
 
@@ -86,7 +86,7 @@ Describe the command, test, inspection, or manual validation that proves this ta
 
 ### Notes
 
-- 
+-
 ```
 
 ## Active ToDos

@@ -11,7 +11,7 @@ The project has four practical package boundaries:
 3. Claude Code Skill package
 4. Generic agent adapter package
 
-No installer scripts or release packaging automation are included in version `0.0.8`.
+No installer scripts or release packaging automation are included in version `0.0.9`.
 
 ## Repository Package
 
@@ -127,7 +127,6 @@ Future versions may add:
 - Terminal installer command
 - Shell and PowerShell installation scripts
 - Sync script to keep Codex/OpenAI and Claude Skill targets equivalent
-- GitHub Actions validation workflow
 - Release packaging workflow
 - Example project smoke tests
 - Optional marketplace or plugin packaging if an ecosystem supports it

@@ -70,6 +70,30 @@ Native goal modes and real review subagents are environment-dependent. The Skill
 
 See the [compatibility matrix](docs/design/compatibility-matrix.md).
 
+## Validation
+
+The repository includes lightweight validation scripts with Python standard library dependencies only.
+
+Run all repository checks:
+
+```bash
+python scripts/validate_repository.py
+```
+
+Run focused checks:
+
+```bash
+python scripts/check_skill_equivalence.py
+python scripts/check_private_content.py
+```
+
+The GitHub Actions workflow at `.github/workflows/validate.yml` runs these checks on pushes and pull requests.
+
+See:
+
+- [Validation strategy](docs/design/validation-strategy.md)
+- [Release readiness](docs/design/release-readiness.md)
+
 ## Quick Usage Example
 
 After installation, invoke the Skill with a scoped objective:
@@ -110,10 +134,13 @@ Rather than assuming a default stack, the skill should teach agents to inspect t
 - [Step 6 objective intake and kickoff](docs/planning/STEP_6_OBJECTIVE_INTAKE_KICKOFF.md)
 - [Step 7 goal memory handoff](docs/planning/STEP_7_GOAL_MEMORY_HANDOFF.md)
 - [Step 8 packaging, installation, and examples](docs/planning/STEP_8_PACKAGING_INSTALLATION_EXAMPLES.md)
+- [Step 9 validation and release readiness](docs/planning/STEP_9_VALIDATION_RELEASE_READINESS.md)
 - [Repository structure design](docs/design/repository-structure.md)
 - [Skill architecture design](docs/design/skill-architecture.md)
 - [Packaging strategy](docs/design/packaging-strategy.md)
 - [Compatibility matrix](docs/design/compatibility-matrix.md)
+- [Validation strategy](docs/design/validation-strategy.md)
+- [Release readiness](docs/design/release-readiness.md)
 - [Changelog](CHANGELOG.md)
 
 ## Examples

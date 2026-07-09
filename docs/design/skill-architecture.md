@@ -10,7 +10,9 @@ Objective-driven autonomous development loop with safety gates
 
 Step 7 added Goal Completion Mode, persistent project memory, continuation behavior, and cross-session handoff.
 
-Step 8 adds public packaging, installation, compatibility, troubleshooting, and first usage example documentation.
+Step 8 added public packaging, installation, compatibility, troubleshooting, and first usage example documentation.
+
+Step 9 adds lightweight validation scripts, Skill equivalence checks, private-content scanning, CI validation, and release-readiness documentation.
 
 ## Installation Targets
 
@@ -32,6 +34,10 @@ Installation documentation:
 Packaging boundaries are documented in `docs/design/packaging-strategy.md`.
 
 Compatibility expectations are documented in `docs/design/compatibility-matrix.md`.
+
+Validation expectations are documented in `docs/design/validation-strategy.md`.
+
+Release-readiness criteria are documented in `docs/design/release-readiness.md`.
 
 ## Entry Point Design
 
@@ -257,6 +263,20 @@ Future versions may add:
 - A build step that generates target-specific Skill files from shared source content.
 - A validation command to check behavioral equivalence.
 - A terminal installer for supported agent environments.
+
+## Validation Strategy
+
+The repository includes lightweight validation scripts under `scripts/`:
+
+- `validate_repository.py`
+- `check_skill_equivalence.py`
+- `check_private_content.py`
+
+These scripts use only Python standard library dependencies.
+
+The GitHub Actions workflow at `.github/workflows/validate.yml` runs the validation scripts on pushes and pull requests.
+
+The workflow is validation-only. It does not publish packages, create release artifacts, or run installer automation.
 
 ## Design Constraint
 

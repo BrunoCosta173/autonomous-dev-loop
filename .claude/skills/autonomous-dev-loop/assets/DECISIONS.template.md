@@ -33,5 +33,5 @@ Describe the decision clearly.
 
 ### Related Files Or Issues
 
-- 
+-
 ```

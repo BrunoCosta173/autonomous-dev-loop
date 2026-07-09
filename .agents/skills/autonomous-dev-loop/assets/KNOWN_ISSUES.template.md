@@ -22,7 +22,7 @@ Describe the issue, limitation, risk, or blocker.
 
 ### Reproduction Steps
 
-1. 
+1.
 
 ### Expected Behavior
 

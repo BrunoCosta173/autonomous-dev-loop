@@ -4,6 +4,15 @@ All notable changes to this project will be documented in this file.
 
 This project uses semantic versioning.
 
+## 0.0.9
+
+### Added
+
+- Added standard-library validation scripts for repository checks, Skill target equivalence, and private-content scanning.
+- Added a GitHub Actions validation workflow for pushes and pull requests.
+- Added validation strategy and release-readiness documentation.
+- Updated README validation guidance and linked the new validation and release-readiness docs.
+
 ## 0.0.8
 
 ### Added
