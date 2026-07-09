@@ -1,0 +1,35 @@
+name: Validate
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.x"
+
+      - name: Validate repository
+        run: python scripts/validate_repository.py
+
+      - name: Check Skill equivalence
+        run: python scripts/check_skill_equivalence.py
+
+      - name: Check private content
+        run: python scripts/check_private_content.py
+
+      - name: Check installer commands
+        run: |
+          python3 scripts/install.py --help
+          python3 scripts/install.py --target codex --scope project --dry-run
+          python3 scripts/install.py --target claude --scope project --dry-run
+          python3 scripts/install.py --target both --scope project --dry-run
+          python3 scripts/install.py --target generic --scope project --dry-run
