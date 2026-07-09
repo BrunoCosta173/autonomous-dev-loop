@@ -48,6 +48,11 @@ Load the relevant reference file for each phase:
 - `references/scope-management.md`: scope boundaries and unrelated findings.
 - `references/safety-gates.md`: mandatory human confirmation rules.
 - `references/stack-detection.md`: stack and command detection guidance.
+- `references/command-discovery.md`: command discovery policy and safe command selection.
+- `references/frontend-playbooks.md`: frontend framework validation playbooks.
+- `references/backend-playbooks.md`: backend, API, CLI, and service validation playbooks.
+- `references/mobile-playbooks.md`: mobile project validation playbooks.
+- `references/infra-playbooks.md`: Docker, CI, deployment config, and infrastructure playbooks.
 - `references/testing-strategy.md`: command selection and validation reporting.
 - `references/repair-strategy.md`: failure triage and repair rules.
 - `references/documentation-rules.md`: project control file guidance.

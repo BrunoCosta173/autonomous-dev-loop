@@ -37,6 +37,13 @@ Read the repository structure, relevant files, existing docs, tests, and recent 
 
 Identify languages, frameworks, package managers, test tools, build tools, and deployment or workflow hints from project files.
 
+Read `stack-detection.md`, then `command-discovery.md`, then the relevant stack playbook:
+
+- `frontend-playbooks.md`
+- `backend-playbooks.md`
+- `mobile-playbooks.md`
+- `infra-playbooks.md`
+
 ### Plan
 
 Create a short execution plan tied directly to the objective.
@@ -55,6 +62,8 @@ Work through feasible ToDos autonomously. Keep edits scoped and update ToDo stat
 
 Run relevant available commands. Prefer project-defined commands over invented commands.
 
+Choose the smallest relevant validation command first, then broaden only when risk or blast radius justifies it.
+
 ### Repair
 
 Fix failures caused by current changes. Document unrelated failures separately.
@@ -70,6 +79,8 @@ Use templates from `assets/` as starting points. Do not create every template au
 Produce a final report with objective status, changed files, commands, results, issues, and next recommended objective.
 
 Use `assets/FINAL_REPORT.template.md` when a persistent `FINAL_REPORT.md` is useful.
+
+Include commands that were unavailable, skipped, unsafe, or not run, with reasons.
 
 ## Unrelated Findings
 

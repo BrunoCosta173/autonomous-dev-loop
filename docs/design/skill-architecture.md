@@ -1,6 +1,6 @@
 # Skill Architecture
 
-`autonomous-dev-loop` uses a dual Skill architecture for version `0.0.1`.
+`autonomous-dev-loop` uses a dual Skill architecture for the initial `0.0.x` series.
 
 The internal behavior is now defined around:
 
@@ -43,6 +43,11 @@ Each Skill target includes this reference set:
 - `references/scope-management.md`
 - `references/safety-gates.md`
 - `references/stack-detection.md`
+- `references/command-discovery.md`
+- `references/frontend-playbooks.md`
+- `references/backend-playbooks.md`
+- `references/mobile-playbooks.md`
+- `references/infra-playbooks.md`
 - `references/testing-strategy.md`
 - `references/repair-strategy.md`
 - `references/documentation-rules.md`
@@ -91,6 +96,17 @@ It should detect languages, frameworks, tools, package managers, and validation 
 
 It should not claim guaranteed compatibility with every stack. It adapts by using available evidence and project-defined commands.
 
+The stack and command discovery layer is split across:
+
+- `stack-detection.md` for file signals and detection output.
+- `command-discovery.md` for command discovery policy and safe command selection.
+- `frontend-playbooks.md` for frontend framework validation heuristics.
+- `backend-playbooks.md` for backend, API, CLI, and service validation heuristics.
+- `mobile-playbooks.md` for mobile validation heuristics.
+- `infra-playbooks.md` for Docker, CI, deployment config, and infrastructure safety guidance.
+
+Project-defined commands remain authoritative. Playbooks provide fallbacks and interpretation guidance after project inspection.
+
 ## Assets
 
 Both Skill targets include an `assets/` directory.
@@ -116,7 +132,7 @@ The template usage policy is documented in `references/documentation-rules.md`.
 
 ## Deferred Sync Strategy
 
-No sync or build script is included in version `0.0.1`.
+No sync or build script is included in the initial `0.0.x` series.
 
 This is intentional. The project first defines the behavior manually, then future versions may add automation to compare, sync, or generate target-specific Skill files.
 

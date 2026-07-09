@@ -70,6 +70,8 @@ Rather than assuming a default stack, the skill should teach agents to inspect t
 - [Step 0 foundation](docs/planning/STEP_0_FOUNDATION.md)
 - [Step 1 repository structure](docs/planning/STEP_1_REPOSITORY_STRUCTURE.md)
 - [Step 2 internal Skill architecture](docs/planning/STEP_2_INTERNAL_SKILL_ARCHITECTURE.md)
+- [Step 3 project control templates](docs/planning/STEP_3_PROJECT_CONTROL_TEMPLATES.md)
+- [Step 4 stack detection and command discovery](docs/planning/STEP_4_STACK_DETECTION_COMMAND_DISCOVERY.md)
 - [Repository structure design](docs/design/repository-structure.md)
 - [Skill architecture design](docs/design/skill-architecture.md)
 - [Changelog](CHANGELOG.md)

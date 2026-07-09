@@ -14,6 +14,7 @@ Report:
 - ToDos executed
 - Files changed
 - Commands run
+- Commands unavailable or not run
 - Test/build/lint results
 - Errors found
 - Repairs applied
@@ -36,6 +37,7 @@ Use one of:
 - Be specific about what changed.
 - Include command names and outcomes.
 - Do not claim validation passed unless commands actually ran.
+- If commands were unavailable or not run, say why.
 - Distinguish failures caused by current work from pre-existing or unrelated failures.
 - Mention safety gates even if they were only encountered and not approved.
 - Mention assumptions that influenced implementation.

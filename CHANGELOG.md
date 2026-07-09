@@ -4,6 +4,15 @@ All notable changes to this project will be documented in this file.
 
 This project uses semantic versioning.
 
+## 0.0.4
+
+### Added
+
+- Added stack detection and command discovery playbooks for frontend, backend, mobile, and infrastructure projects.
+- Added command discovery guidance for project-defined commands, package manager detection, safe command selection, and validation reporting.
+- Expanded stack detection signals across JavaScript/TypeScript, Python, PHP, Ruby, Java/JVM, .NET, Go, Rust, mobile, and infra/DevOps projects.
+- Documented Step 4 stack detection and command discovery decisions.
+
 ## 0.0.3
 
 ### Added
