@@ -4,6 +4,24 @@ All notable changes to this project will be documented in this file.
 
 This project uses semantic versioning.
 
+## 0.1.0
+
+### Added
+
+- Published the first public release version.
+- Included the Codex/OpenAI Skill target at `.agents/skills/autonomous-dev-loop/`.
+- Included the Claude Code Skill target at `.claude/skills/autonomous-dev-loop/`.
+- Included reusable generic agent adapters.
+- Included Goal Completion Mode for objective-driven autonomous runs.
+- Included the Review Subagent Loop with independent review-pass fallback.
+- Included persistent project memory templates and continuation handoff guidance.
+- Included the dependency-free Python installer with install, update, and uninstall actions.
+- Included shell and PowerShell installer wrappers.
+- Included local release packaging scripts for repository, Skill target, and adapter zip packages.
+- Included validation scripts for repository structure, Skill equivalence, and private-content scanning.
+- Included GitHub Actions validation and package workflows.
+- Included release documentation, release-readiness docs, and first public release notes.
+
 ## 0.0.12
 
 ### Added

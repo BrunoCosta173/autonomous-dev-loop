@@ -194,4 +194,4 @@ Future versions may add:
 - Skill target validation during install
 - Marketplace or plugin packaging if supported by the relevant agent ecosystem
 
-Version `0.0.12` includes a Python installer and shell wrappers, but does not publish packages or marketplace/plugin entries automatically.
+Version `0.1.0` includes a Python installer and shell wrappers, but does not publish packages or marketplace/plugin entries automatically.

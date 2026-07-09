@@ -11,7 +11,7 @@ The project has four practical package boundaries:
 3. Claude Code Skill package
 4. Generic agent adapter package
 
-Version `0.0.12` includes local installer and package-generation scripts plus release-candidate install positioning and final pre-merge audit corrections.
+Version `0.1.0` is the first public release and includes local installer and package-generation scripts plus release-ready install positioning.
 
 It does not include release publishing automation.
 
@@ -119,7 +119,7 @@ The repository uses semantic versioning.
 Commit and release titles should use only the version number, such as:
 
 ```text
-0.0.12
+0.1.0
 ```
 
 ## Install Channels
@@ -197,7 +197,7 @@ dist/autonomous-dev-loop-adapters-<version>.zip
 Generate packages:
 
 ```bash
-python3 scripts/package_release.py --version 0.0.12 --clean
+python3 scripts/package_release.py --version 0.1.0 --clean
 ```
 
 Generated `dist/` files are local release artifacts and are ignored by Git.

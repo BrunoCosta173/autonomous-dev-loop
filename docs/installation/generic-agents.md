@@ -197,4 +197,4 @@ sh install.sh --target generic --scope project
 
 Future versions may add richer terminal commands to help install selected control file templates.
 
-Version `0.0.12` includes a Python installer and shell wrappers, but does not publish packages or marketplace/plugin entries automatically.
+Version `0.1.0` includes a Python installer and shell wrappers, but does not publish packages or marketplace/plugin entries automatically.

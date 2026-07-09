@@ -16,9 +16,11 @@ Use this checklist before merging the release branch to `main` or publishing a t
 - [x] Codex/OpenAI and Claude targets remain equivalent locally
 - [x] No private content found locally
 - [x] No external dependencies added accidentally
-- [ ] GitHub Actions passing, pending PR confirmation
+- [ ] GitHub Actions passing on `main` after the `0.1.0` release commit is pushed
 - [x] Generated release packages verified locally
-- [x] Branch ready for PR after the `0.0.12` commit is pushed
+- [x] Pull request merged into `main`
+- [ ] `0.1.0` release commit pushed to `main`
+- [ ] `v0.1.0` tag pushed
 - [ ] Main branch should remain release-ready after merge
 
 ## Manual Smoke Tests
@@ -43,7 +45,7 @@ python3 scripts/install.py --target both --scope project --dry-run
 python3 scripts/install.py --target generic --scope project --dry-run
 python3 scripts/install.py --action update --target codex --scope project --dry-run
 python3 scripts/install.py --action uninstall --target codex --scope project --dry-run
-python3 scripts/package_release.py --version 0.0.12 --clean
+python3 scripts/package_release.py --version 0.1.0 --clean
 ```
 
 ## Release Blockers

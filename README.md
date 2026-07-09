@@ -4,7 +4,7 @@ Structured autonomous software development loops for AI coding agents.
 
 `autonomous-dev-loop` is a reusable Skill and instruction system that helps AI coding agents plan, implement, test, repair, review, document, and continue software development work with clear safety gates.
 
-Current version: `0.0.12`
+Current version: `0.1.0` — first public release.
 
 ## What It Does
 
@@ -376,23 +376,23 @@ Release readiness:
 Generate local release packages:
 
 ```bash
-python3 scripts/package_release.py --version 0.0.12 --clean
+python3 scripts/package_release.py --version 0.1.0 --clean
 ```
 
 Expected output:
 
 ```text
-dist/autonomous-dev-loop-0.0.12.zip
-dist/autonomous-dev-loop-codex-0.0.12.zip
-dist/autonomous-dev-loop-claude-0.0.12.zip
-dist/autonomous-dev-loop-adapters-0.0.12.zip
+dist/autonomous-dev-loop-0.1.0.zip
+dist/autonomous-dev-loop-codex-0.1.0.zip
+dist/autonomous-dev-loop-claude-0.1.0.zip
+dist/autonomous-dev-loop-adapters-0.1.0.zip
 ```
 
 The packaging workflow validates package generation, but does not publish artifacts or create GitHub releases.
 
 Draft release notes:
 
-- [Release notes 0.0.12](docs/release/RELEASE_NOTES_0.0.12.md)
+- [Release notes 0.1.0](docs/release/RELEASE_NOTES_0.1.0.md)
 
 ## Roadmap
 

@@ -13,7 +13,7 @@ import zipfile
 ROOT = Path(__file__).resolve().parents[1]
 PACKAGER = ROOT / "scripts" / "package_release.py"
 DIST = ROOT / "dist"
-VERSION = "0.0.12"
+VERSION = "0.1.0"
 
 
 def run_packager(*args: str) -> subprocess.CompletedProcess[str]:

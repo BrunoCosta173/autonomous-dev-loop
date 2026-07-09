@@ -123,16 +123,16 @@ The installer removes only known Skill folders and adapter files. User-modified 
 Generate release packages:
 
 ```bash
-python3 scripts/package_release.py --version 0.0.12 --clean
+python3 scripts/package_release.py --version 0.1.0 --clean
 ```
 
 Expected files:
 
 ```text
-dist/autonomous-dev-loop-0.0.12.zip
-dist/autonomous-dev-loop-codex-0.0.12.zip
-dist/autonomous-dev-loop-claude-0.0.12.zip
-dist/autonomous-dev-loop-adapters-0.0.12.zip
+dist/autonomous-dev-loop-0.1.0.zip
+dist/autonomous-dev-loop-codex-0.1.0.zip
+dist/autonomous-dev-loop-claude-0.1.0.zip
+dist/autonomous-dev-loop-adapters-0.1.0.zip
 ```
 
 If packaging fails:
