@@ -19,6 +19,7 @@ A version is release-ready when:
 - Packaging tests pass.
 - Expected release zip packages can be generated locally.
 - Release candidate checklist is reviewed.
+- Pull request description draft is prepared.
 - GitHub Actions validation is passing.
 - Manual review is complete.
 
@@ -31,7 +32,7 @@ python scripts/validate_repository.py
 python scripts/check_skill_equivalence.py
 python scripts/check_private_content.py
 python scripts/test_installer.py
-python scripts/package_release.py --version 0.0.11 --clean
+python scripts/package_release.py --version 0.0.12 --clean
 python scripts/test_packaging.py
 ```
 
@@ -70,12 +71,12 @@ Use semantic versioning.
 Commit and release titles should use only the version number, such as:
 
 ```text
-0.0.11
+0.0.12
 ```
 
 ## Current Release Automation Boundary
 
-Version `0.0.11` includes release-candidate README structure, release checklist, draft release notes, local installer, update, uninstall, and package-generation scripts plus GitHub Actions validation and packaging checks.
+Version `0.0.12` includes final pre-merge release-candidate review, README and install wrapper corrections, release checklist updates, draft release notes, a PR description draft, local installer, update, uninstall, and package-generation scripts plus GitHub Actions validation and packaging checks.
 
 It does not include:
 
@@ -90,12 +91,14 @@ Use `docs/release/RELEASE_CANDIDATE_CHECKLIST.md` before merging to `main` or pu
 
 The checklist covers required checks, manual smoke tests, and release blockers.
 
+Use `docs/release/PR_DESCRIPTION_DRAFT.md` when opening the pull request.
+
 ## Future Release Work
 
 Future versions may add:
 
-- Release candidate checklist
-- Generated archives for each Skill target
+- Release candidate checklist refinements
+- Published release archives for each Skill target
 - Equivalence snapshot reports
 - Example project smoke tests
 - Installer validation

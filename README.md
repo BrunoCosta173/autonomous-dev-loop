@@ -4,7 +4,7 @@ Structured autonomous software development loops for AI coding agents.
 
 `autonomous-dev-loop` is a reusable Skill and instruction system that helps AI coding agents plan, implement, test, repair, review, document, and continue software development work with clear safety gates.
 
-Current version: `0.0.11`
+Current version: `0.0.12`
 
 ## What It Does
 
@@ -79,6 +79,8 @@ The agent must stop for safety gates instead of silently performing high-risk wo
 For end users and vibe-coders, one-command install is the easiest path.
 
 These commands install the latest version from the `main` branch. For reproducible installs, use a tagged release when available.
+
+When run through a pipe, `install.sh` downloads the `main` branch archive to a temporary directory and then runs the dependency-free Python installer from that archive.
 
 ### Codex/OpenAI
 
@@ -374,23 +376,23 @@ Release readiness:
 Generate local release packages:
 
 ```bash
-python3 scripts/package_release.py --version 0.0.11 --clean
+python3 scripts/package_release.py --version 0.0.12 --clean
 ```
 
 Expected output:
 
 ```text
-dist/autonomous-dev-loop-0.0.11.zip
-dist/autonomous-dev-loop-codex-0.0.11.zip
-dist/autonomous-dev-loop-claude-0.0.11.zip
-dist/autonomous-dev-loop-adapters-0.0.11.zip
+dist/autonomous-dev-loop-0.0.12.zip
+dist/autonomous-dev-loop-codex-0.0.12.zip
+dist/autonomous-dev-loop-claude-0.0.12.zip
+dist/autonomous-dev-loop-adapters-0.0.12.zip
 ```
 
 The packaging workflow validates package generation, but does not publish artifacts or create GitHub releases.
 
 Draft release notes:
 
-- [Release notes 0.0.11](docs/release/RELEASE_NOTES_0.0.11.md)
+- [Release notes 0.0.12](docs/release/RELEASE_NOTES_0.0.12.md)
 
 ## Roadmap
 

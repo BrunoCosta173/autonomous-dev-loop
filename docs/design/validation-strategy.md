@@ -61,7 +61,7 @@ If a local environment does not provide `python`, use the available Python comma
 - Required installation docs exist.
 - Required planning docs exist.
 - Required example README files exist.
-- Release candidate checklist and draft release notes exist.
+- Release candidate checklist, draft release notes, and PR description draft exist.
 - README includes quick install, agent-assisted installation, and release readiness links.
 - `CHANGELOG.md` includes the current version.
 - Basic text hygiene passes for repository text files.

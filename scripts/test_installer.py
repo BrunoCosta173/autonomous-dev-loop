@@ -79,6 +79,23 @@ def test_dry_run_does_not_create_files() -> None:
         assert_missing(project / ".agents")
 
 
+def test_shell_wrapper_dry_run() -> None:
+    with tempfile.TemporaryDirectory() as tmp:
+        project = Path(tmp)
+        result = subprocess.run(
+            ["sh", str(ROOT / "install.sh"), "--target", "codex", "--scope", "project", "--dry-run"],
+            cwd=project,
+            text=True,
+            stdout=subprocess.PIPE,
+            stderr=subprocess.PIPE,
+        )
+        if result.returncode != 0:
+            raise AssertionError(
+                f"Expected shell wrapper dry-run to succeed\nSTDOUT:\n{result.stdout}\nSTDERR:\n{result.stderr}"
+            )
+        assert_missing(project / ".agents")
+
+
 def test_existing_destination_without_force_fails() -> None:
     with tempfile.TemporaryDirectory() as tmp:
         project = Path(tmp)
@@ -151,6 +168,7 @@ def main() -> int:
         test_project_both_install,
         test_generic_adapter_install,
         test_dry_run_does_not_create_files,
+        test_shell_wrapper_dry_run,
         test_existing_destination_without_force_fails,
         test_existing_destination_with_force_succeeds,
         test_update_existing_install_succeeds,

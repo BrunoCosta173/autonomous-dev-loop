@@ -4,6 +4,21 @@ All notable changes to this project will be documented in this file.
 
 This project uses semantic versioning.
 
+## 0.0.12
+
+### Added
+
+- Added the final pre-merge review planning document for Step 12.
+- Added draft release notes for `0.0.12`.
+- Added a ready-to-copy pull request description draft.
+
+### Changed
+
+- Updated release-candidate documentation, packaging validation, and release checklist references for `0.0.12`.
+- Updated root repository agent instructions to reflect the current release-candidate state.
+- Updated the shell installer wrapper so one-command installs from GitHub raw content can download the `main` branch archive and run the Python installer from a temporary copy.
+- Added shell wrapper dry-run coverage to installer tests.
+
 ## 0.0.11
 
 ### Added

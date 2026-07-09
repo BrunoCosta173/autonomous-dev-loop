@@ -12,6 +12,8 @@ curl -fsSL https://raw.githubusercontent.com/BrunoCosta173/autonomous-dev-loop/m
 
 For reproducible installs, use a tagged release when available.
 
+When run through a pipe, `install.sh` downloads the `main` branch archive to a temporary directory and runs the Python installer from that archive.
+
 Inspect-first alternative:
 
 ```bash
@@ -174,6 +176,8 @@ The quick install command near the top of this document uses `main` as the lates
 
 For reproducible installs, use a tagged release when available.
 
+Piped installation requires `python3`, `tar`, and either `curl` or `wget`.
+
 Inspect-first pattern:
 
 ```bash
@@ -190,4 +194,4 @@ Future versions may add:
 - Skill target validation during install
 - Marketplace or plugin packaging if supported by the relevant agent ecosystem
 
-Version `0.0.11` includes a Python installer and shell wrappers, but does not publish packages or marketplace/plugin entries automatically.
+Version `0.0.12` includes a Python installer and shell wrappers, but does not publish packages or marketplace/plugin entries automatically.

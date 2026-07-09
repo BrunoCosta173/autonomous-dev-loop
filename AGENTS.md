@@ -6,18 +6,18 @@ They are not the reusable adapter instructions for end-user projects. User-facin
 
 ## Project Status
 
-The project is in early planning and scaffolding.
+The project is in release-candidate preparation for the first public release.
 
-- Step 0 foundation is complete.
-- Step 1 repository structure is complete.
-- Step 2 internal Skill architecture is complete.
-- Installer scripts, asset templates, and complete examples are not implemented yet.
+- Steps 0 through 11 are complete.
+- Step 12 is the final pre-merge review and PR preparation step.
+- Installer scripts, Skill assets, validation scripts, release packaging, installation docs, and lightweight example documentation are implemented.
+- Complete example applications and release publishing are intentionally not implemented yet.
 
 ## Repository Goals
 
-`autonomous-dev-loop` will become a public, reusable agent skill for controlled autonomous software development loops.
+`autonomous-dev-loop` is a public, reusable agent skill for controlled autonomous software development loops.
 
-The Skill should eventually guide:
+The Skill guides:
 
 ```text
 Objective intake -> project inspection -> planning -> ToDo generation -> execution -> testing -> repair -> documentation -> final report
@@ -29,7 +29,8 @@ Objective intake -> project inspection -> planning -> ToDo generation -> executi
 - Keep the project generic and public GitHub-ready.
 - Do not add private, company-specific, or environment-specific information.
 - Keep autonomous loop behavior aligned with the existing Skill references.
-- Do not add installer scripts until the roadmap explicitly calls for them.
+- Keep installer, validation, and packaging tooling dependency-free unless a future step explicitly changes that policy.
+- Do not publish releases, create tags, merge branches, or open pull requests unless the user explicitly requests that action.
 - Preserve behavioral equivalence between the Codex/OpenAI and Claude Skill versions.
 - Keep Skill folders focused on installable Skill content.
 - Put planning, installation, design, and contribution documentation under `docs/` or root-level files.

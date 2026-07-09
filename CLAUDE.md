@@ -6,16 +6,16 @@ Do not copy this file into end-user projects. Use `adapters/CLAUDE.md` as the re
 
 ## Current Status
 
-The project is in early planning and scaffolding.
+The project is in release-candidate preparation for the first public release.
 
-- Step 0 foundation is complete.
-- Step 1 repository structure is complete.
-- Step 2 internal Skill architecture is complete.
-- Installer scripts, asset templates, and complete examples are intentionally deferred.
+- Steps 0 through 11 are complete.
+- Step 12 is the final pre-merge review and PR preparation step.
+- Installer scripts, Skill assets, validation scripts, release packaging, installation docs, and lightweight example documentation are implemented.
+- Complete example applications and release publishing are intentionally deferred.
 
 ## Repository Purpose
 
-`autonomous-dev-loop` will become a public, reusable agent skill for autonomous software development loops with safety gates.
+`autonomous-dev-loop` is a public, reusable agent skill for autonomous software development loops with safety gates.
 
 The target workflow is:
 
@@ -36,7 +36,8 @@ Objective intake -> project inspection -> planning -> ToDo generation -> executi
 - Keep the Skill generic and stack-agnostic.
 - Avoid private, company-specific, product-specific, ERP-specific, or CRM-specific assumptions.
 - Keep autonomous loop behavior aligned with the existing Skill references.
-- Do not create installer scripts yet.
+- Keep installer, validation, and packaging tooling dependency-free unless a future step explicitly changes that policy.
+- Do not publish releases, create tags, merge branches, or open pull requests unless the user explicitly requests that action.
 - Keep the Claude Skill behaviorally equivalent to the Codex/OpenAI Skill.
 - Update `CHANGELOG.md` when making notable changes.
 

@@ -14,6 +14,7 @@ If a one-command install fails:
 - Run the script locally with the same arguments.
 - Try the Python installer directly.
 - Confirm the target project directory is correct.
+- Confirm `curl` or `wget`, `tar`, and `python3` are available. Piped installation uses them to download the `main` branch archive and run the Python installer from a temporary directory.
 
 ## Skill Is Not Detected
 
@@ -122,16 +123,16 @@ The installer removes only known Skill folders and adapter files. User-modified 
 Generate release packages:
 
 ```bash
-python3 scripts/package_release.py --version 0.0.11 --clean
+python3 scripts/package_release.py --version 0.0.12 --clean
 ```
 
 Expected files:
 
 ```text
-dist/autonomous-dev-loop-0.0.11.zip
-dist/autonomous-dev-loop-codex-0.0.11.zip
-dist/autonomous-dev-loop-claude-0.0.11.zip
-dist/autonomous-dev-loop-adapters-0.0.11.zip
+dist/autonomous-dev-loop-0.0.12.zip
+dist/autonomous-dev-loop-codex-0.0.12.zip
+dist/autonomous-dev-loop-claude-0.0.12.zip
+dist/autonomous-dev-loop-adapters-0.0.12.zip
 ```
 
 If packaging fails:
