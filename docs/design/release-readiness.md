@@ -18,6 +18,7 @@ A version is release-ready when:
 - Installer tests pass.
 - Packaging tests pass.
 - Expected release zip packages can be generated locally.
+- SHA256 checksum files are generated for each release zip package.
 - Release candidate checklist is reviewed.
 - Pull request description draft is prepared.
 - GitHub Actions validation is passing.
@@ -32,7 +33,7 @@ python scripts/validate_repository.py
 python scripts/check_skill_equivalence.py
 python scripts/check_private_content.py
 python scripts/test_installer.py
-python scripts/package_release.py --version 0.1.0 --clean
+python scripts/package_release.py --version 0.1.1 --clean
 python scripts/test_packaging.py
 ```
 
@@ -71,12 +72,12 @@ Use semantic versioning.
 Commit and release titles should use only the version number, such as:
 
 ```text
-0.1.0
+0.1.1
 ```
 
 ## Current Release Automation Boundary
 
-Version `0.1.0` is the first public release. It includes release-ready README and install guidance, local installer, update, uninstall, package-generation scripts, release notes, validation tooling, and GitHub Actions validation and packaging checks.
+Version `0.1.1` is a post-release patch candidate. It includes documentation refreshes, safety gate clarifications, no-validation-command guidance, issue templates, a code of conduct, and SHA256 checksums for generated release packages.
 
 It does not include:
 

@@ -4,6 +4,33 @@ All notable changes to this project will be documented in this file.
 
 This project uses semantic versioning.
 
+## 0.1.1
+
+### Added
+
+- Added post-release audit fixes after the public `0.1.0` release.
+- Added GitHub issue templates for bug reports and feature requests.
+- Added `CODE_OF_CONDUCT.md`.
+- Added SHA256 checksum files for generated release packages.
+- Added `0.1.1` release notes and Step 14 planning documentation.
+
+### Changed
+
+- Refreshed stale `CONTRIBUTING.md` and `PROJECT_BRIEF.md`.
+- Improved README scanability and visual structure.
+- Reconciled the loop protocol step count with the Skill entrypoints by adding explicit `Kickoff`.
+- Defined the default maximum autonomous cycles as 10.
+- Clarified Linux/macOS-oriented one-command install and Windows/PowerShell local-install limitations.
+- Added data exfiltration and external transmission as explicit safety gates.
+- Added guidance for cases where no validation commands are available.
+- Added adapter fallback guidance when the Skill folder is not installed.
+- Added a control-file clutter limit for autonomous runs.
+
+### Verified
+
+- Confirmed `dist/` artifacts are not tracked by Git.
+- Left the published `v0.1.0` release and tag unchanged.
+
 ## 0.1.0
 
 ### Added

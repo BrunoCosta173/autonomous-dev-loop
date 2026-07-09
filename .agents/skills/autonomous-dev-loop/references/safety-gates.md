@@ -13,6 +13,7 @@ Stop and request human confirmation before:
 - Authorization or permission changes
 - Secret or environment variable handling
 - Deployment
+- Data exfiltration or external transmission
 - Major architecture rewrites
 - Framework replacement
 - Business-critical rule changes
@@ -57,6 +58,7 @@ Approval is required before:
 - Database migrations, resets, seed operations, or schema changes with data-loss risk.
 - Authentication, authorization, role, policy, session, token, or permission changes.
 - Reading, printing, creating, rotating, uploading, or modifying secrets or environment variables.
+- Exporting, uploading, transmitting, or copying project data to external services or locations.
 - Major architecture rewrites or framework replacement.
 - Business-critical rule changes.
 - Installing, replacing, or upgrading critical dependencies.
@@ -83,6 +85,14 @@ Examples requiring confirmation include:
 Do not read, print, create, rotate, upload, or modify secrets or environment variables unless the user explicitly authorizes that work.
 
 If secret-like values appear in files or logs, avoid repeating them in output.
+
+## Data Exfiltration And External Transmission
+
+Do not export, upload, transmit, paste, or copy project data outside the project environment unless the user explicitly authorizes that action.
+
+This includes source code, secrets, logs, database dumps, user data, proprietary files, environment data, generated reports, or archives sent to external services, public locations, third-party tools, or unrelated directories.
+
+If external transmission is required, stop and request approval with the exact destination, data type, reason, and safer alternative.
 
 ## Ambiguous Product Decisions
 

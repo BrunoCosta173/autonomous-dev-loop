@@ -14,6 +14,8 @@ For reproducible installs, use a tagged release when available.
 
 When run through a pipe, `install.sh` downloads the `main` branch archive to a temporary directory and runs the Python installer from that archive.
 
+This one-command form is Linux/macOS-oriented. Windows users should clone the repository and run `python scripts/install.py`, or use local `install.ps1` after inspecting it.
+
 Inspect-first alternative:
 
 ```bash
@@ -85,7 +87,7 @@ The POSIX shell wrapper calls the Python installer:
 
 ## PowerShell Wrapper
 
-The PowerShell wrapper calls the Python installer:
+The PowerShell wrapper is intended for local use from a cloned repository. It calls the Python installer:
 
 ```powershell
 ./install.ps1 --target codex --scope project --project-dir path/to/target-project
@@ -178,6 +180,8 @@ For reproducible installs, use a tagged release when available.
 
 Piped installation requires `python3`, `tar`, and either `curl` or `wget`.
 
+PowerShell one-command remote installation is not implemented in this release. Use clone plus `python scripts/install.py`, or run local `install.ps1` after inspection.
+
 Inspect-first pattern:
 
 ```bash
@@ -194,4 +198,4 @@ Future versions may add:
 - Skill target validation during install
 - Marketplace or plugin packaging if supported by the relevant agent ecosystem
 
-Version `0.1.0` includes a Python installer and shell wrappers, but does not publish packages or marketplace/plugin entries automatically.
+Version `0.1.1` includes a Python installer and shell wrappers, but does not publish packages or marketplace/plugin entries automatically.

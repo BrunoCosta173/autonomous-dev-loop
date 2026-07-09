@@ -39,7 +39,7 @@ Continue while unfinished ToDos remain inside the current objective. Do not drif
 
 ## Safety Gates
 
-Use autonomous execution for safe, objective-scoped work. Stop for human confirmation before destructive commands, mass deletion, data-loss migrations, authentication or authorization changes, secret or environment handling, deployment, major rewrites, framework replacement, irreversible operations, business-critical rule changes, or materially ambiguous product decisions.
+Use autonomous execution for safe, objective-scoped work. Stop for human confirmation before destructive commands, mass deletion, data-loss migrations, authentication or authorization changes, secret or environment handling, data exfiltration or external transmission, deployment, major rewrites, framework replacement, irreversible operations, business-critical rule changes, or materially ambiguous product decisions.
 
 ## References
 

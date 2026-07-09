@@ -8,6 +8,8 @@ README one-command install examples use the `main` branch as the latest channel.
 
 For reproducible installs, use a tagged release when available.
 
+The one-command `curl | sh` form is Linux/macOS-oriented. Windows users should clone the repository and use `python scripts/install.py`, or run local `install.ps1` after inspecting it.
+
 If a one-command install fails:
 
 - Download and inspect `install.sh`.
@@ -123,16 +125,20 @@ The installer removes only known Skill folders and adapter files. User-modified 
 Generate release packages:
 
 ```bash
-python3 scripts/package_release.py --version 0.1.0 --clean
+python3 scripts/package_release.py --version 0.1.1 --clean
 ```
 
 Expected files:
 
 ```text
-dist/autonomous-dev-loop-0.1.0.zip
-dist/autonomous-dev-loop-codex-0.1.0.zip
-dist/autonomous-dev-loop-claude-0.1.0.zip
-dist/autonomous-dev-loop-adapters-0.1.0.zip
+dist/autonomous-dev-loop-0.1.1.zip
+dist/autonomous-dev-loop-0.1.1.zip.sha256
+dist/autonomous-dev-loop-codex-0.1.1.zip
+dist/autonomous-dev-loop-codex-0.1.1.zip.sha256
+dist/autonomous-dev-loop-claude-0.1.1.zip
+dist/autonomous-dev-loop-claude-0.1.1.zip.sha256
+dist/autonomous-dev-loop-adapters-0.1.1.zip
+dist/autonomous-dev-loop-adapters-0.1.1.zip.sha256
 ```
 
 If packaging fails:

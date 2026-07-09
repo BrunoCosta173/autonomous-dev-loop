@@ -14,6 +14,8 @@ When available, use the installed `autonomous-dev-loop` Skill for structured aut
 
 The Skill should guide objective intake, project inspection, planning, ToDo generation, execution, testing, repair, documentation, and final reporting with safety gates.
 
+If the Skill folder is not present, ask whether to install it or follow this adapter as a lightweight fallback.
+
 ## Safety Gates
 
 Stop and request human confirmation before:
@@ -24,6 +26,7 @@ Stop and request human confirmation before:
 - Authentication or permission changes
 - Deployment
 - Secret or environment variable handling
+- Data exfiltration or external transmission
 - Major architectural rewrites
 - Framework replacement
 - Ambiguous product decisions

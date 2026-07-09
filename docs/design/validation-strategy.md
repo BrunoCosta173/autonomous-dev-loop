@@ -59,6 +59,7 @@ If a local environment does not provide `python`, use the available Python comma
 - No obvious private, company-specific, environment-specific, or secret-like content appears in repository text files.
 - Required repository docs exist.
 - Required installation docs exist.
+- Required issue templates exist.
 - Required planning docs exist.
 - Required example README files exist.
 - Release candidate checklist, draft release notes, and PR description draft exist.
@@ -70,6 +71,7 @@ If a local environment does not provide `python`, use the available Python comma
 - Installer tests pass.
 - Packaging dry-run works.
 - Packaging tests pass.
+- Release packages include SHA256 checksum files.
 
 `scripts/check_skill_equivalence.py` focuses on Skill target equivalence.
 

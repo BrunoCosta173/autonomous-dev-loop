@@ -4,6 +4,7 @@
 from __future__ import annotations
 
 import argparse
+import hashlib
 from pathlib import Path
 import re
 import shutil
@@ -74,6 +75,13 @@ def _write_zip(zip_path: Path, source: Path, archive_root: str) -> int:
     return count
 
 
+def _write_sha256(zip_path: Path) -> Path:
+    digest = hashlib.sha256(zip_path.read_bytes()).hexdigest()
+    checksum_path = zip_path.with_name(zip_path.name + ".sha256")
+    checksum_path.write_text(f"{digest}  {zip_path.name}\n", encoding="utf-8")
+    return checksum_path
+
+
 def _package_specs(version: str) -> list[tuple[str, Path, str]]:
     return [
         (
@@ -127,6 +135,9 @@ def create_packages(version: str, clean: bool, dry_run: bool) -> list[Path]:
                 raise PackagingError(f"Package was not created: {zip_path}")
             if written_count != file_count:
                 raise PackagingError(f"Package file count mismatch: {zip_path}")
+            checksum_path = _write_sha256(zip_path)
+            if not checksum_path.is_file():
+                raise PackagingError(f"Checksum was not created: {checksum_path}")
 
     return expected_paths
 

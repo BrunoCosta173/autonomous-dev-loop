@@ -8,6 +8,8 @@ It can be copied or renamed to match the instruction filename expected by the ta
 
 Use `autonomous-dev-loop` as the operating model for structured autonomous software development work.
 
+If the `autonomous-dev-loop` Skill folder is not present, ask whether to install it or follow this adapter as a lightweight fallback.
+
 ## Operating Model
 
 Follow this high-level loop:
@@ -28,6 +30,7 @@ Stop and request human confirmation before:
 - Authentication or permission changes
 - Deployment
 - Secret or environment variable handling
+- Data exfiltration or external transmission
 - Major architectural rewrites
 - Framework replacement
 - Ambiguous product decisions

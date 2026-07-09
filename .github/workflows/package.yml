@@ -27,11 +27,15 @@ jobs:
         run: python scripts/check_private_content.py
 
       - name: Create release packages
-        run: python3 scripts/package_release.py --version 0.1.0 --clean
+        run: python3 scripts/package_release.py --version 0.1.1 --clean
 
       - name: Verify packages
         run: |
-          test -f dist/autonomous-dev-loop-0.1.0.zip
-          test -f dist/autonomous-dev-loop-codex-0.1.0.zip
-          test -f dist/autonomous-dev-loop-claude-0.1.0.zip
-          test -f dist/autonomous-dev-loop-adapters-0.1.0.zip
+          test -f dist/autonomous-dev-loop-0.1.1.zip
+          test -f dist/autonomous-dev-loop-0.1.1.zip.sha256
+          test -f dist/autonomous-dev-loop-codex-0.1.1.zip
+          test -f dist/autonomous-dev-loop-codex-0.1.1.zip.sha256
+          test -f dist/autonomous-dev-loop-claude-0.1.1.zip
+          test -f dist/autonomous-dev-loop-claude-0.1.1.zip.sha256
+          test -f dist/autonomous-dev-loop-adapters-0.1.1.zip
+          test -f dist/autonomous-dev-loop-adapters-0.1.1.zip.sha256
