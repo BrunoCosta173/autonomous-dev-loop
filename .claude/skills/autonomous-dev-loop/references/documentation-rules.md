@@ -6,6 +6,8 @@ Do not force every control file into every project.
 
 Use project control files as persistent project memory when they help future agents resume safely.
 
+Do not create more than 3 project control files in one run unless the user explicitly requests more or the objective clearly requires it.
+
 ## Useful Control Files
 
 Create or update when useful:

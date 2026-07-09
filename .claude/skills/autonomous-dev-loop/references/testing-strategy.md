@@ -70,6 +70,17 @@ If tests were not run, state why:
 
 If commands fail, report the failing command and whether the failure appears related to current changes.
 
+## No Validation Commands Available
+
+If no relevant validation commands are available:
+
+- Document that no validation commands were found.
+- Do not keep searching indefinitely.
+- Use manual inspection plus the Review Subagent Loop or independent review passes.
+- Do not claim automated tests passed.
+- Mark validation as `not available - no commands found` or `not run - no commands found`.
+- Recommend adding validation commands in future when appropriate.
+
 ## Safe Defaults
 
 - Prefer read-only checks and local validation.

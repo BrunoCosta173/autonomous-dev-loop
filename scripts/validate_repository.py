@@ -13,7 +13,7 @@ from check_skill_equivalence import compare_skill_targets
 
 
 ROOT = Path(__file__).resolve().parents[1]
-CURRENT_VERSION = "0.1.0"
+CURRENT_VERSION = "0.1.1"
 
 CODEX_SKILL = ROOT / ".agents" / "skills" / "autonomous-dev-loop"
 CLAUDE_SKILL = ROOT / ".claude" / "skills" / "autonomous-dev-loop"
@@ -32,6 +32,7 @@ REQUIRED_REPOSITORY_DOCS = [
     "LICENSE",
     "CHANGELOG.md",
     "CONTRIBUTING.md",
+    "CODE_OF_CONDUCT.md",
     "PROJECT_BRIEF.md",
     "AGENTS.md",
     "CLAUDE.md",
@@ -42,7 +43,7 @@ REQUIRED_REPOSITORY_DOCS = [
     "docs/design/validation-strategy.md",
     "docs/design/release-readiness.md",
     "docs/release/RELEASE_CANDIDATE_CHECKLIST.md",
-    "docs/release/RELEASE_NOTES_0.1.0.md",
+    "docs/release/RELEASE_NOTES_0.1.1.md",
     "docs/release/PR_DESCRIPTION_DRAFT.md",
 ]
 
@@ -61,6 +62,12 @@ REQUIRED_SCRIPT_FILES = [
 REQUIRED_WORKFLOWS = [
     ".github/workflows/validate.yml",
     ".github/workflows/package.yml",
+]
+
+REQUIRED_ISSUE_TEMPLATES = [
+    ".github/ISSUE_TEMPLATE/bug_report.md",
+    ".github/ISSUE_TEMPLATE/feature_request.md",
+    ".github/ISSUE_TEMPLATE/config.yml",
 ]
 
 REQUIRED_INSTALLATION_DOCS = [
@@ -85,6 +92,7 @@ REQUIRED_PLANNING_DOCS = [
     "docs/planning/STEP_10_INSTALLER_UPDATE_UNINSTALL_PACKAGING.md",
     "docs/planning/STEP_11_RELEASE_CANDIDATE_README.md",
     "docs/planning/STEP_12_FINAL_PRE_MERGE_REVIEW.md",
+    "docs/planning/STEP_14_POST_RELEASE_AUDIT_FIXES.md",
 ]
 
 REQUIRED_EXAMPLES = [
@@ -268,7 +276,7 @@ def _check_readme_release_candidate_sections() -> list[str]:
     required_patterns = {
         "Quick Install section": "## Quick Install",
         "one-command main install": "raw.githubusercontent.com/BrunoCosta173/autonomous-dev-loop/main/install.sh",
-        "Agent-assisted installation section": "## Agent-Assisted Installation",
+        "agent-assisted installation documentation link": "docs/installation/agent-assisted-installation.md",
         "release checklist link": "docs/release/RELEASE_CANDIDATE_CHECKLIST.md",
         "release readiness link": "docs/design/release-readiness.md",
     }
@@ -277,6 +285,8 @@ def _check_readme_release_candidate_sections() -> list[str]:
     for label, pattern in required_patterns.items():
         if pattern not in text:
             failures.append(f"README.md missing {label}")
+    if "## For Agents" not in text and "## Agent-Assisted Installation" not in text:
+        failures.append("README.md missing agent-facing installation section")
     return failures
 
 
@@ -359,6 +369,7 @@ def run_validation() -> list[str]:
         ("Required repository docs", _check_required_paths(REQUIRED_REPOSITORY_DOCS, "repository doc")),
         ("Required scripts and wrappers", _check_required_paths(REQUIRED_SCRIPT_FILES, "script or wrapper")),
         ("Required workflows", _check_required_paths(REQUIRED_WORKFLOWS, "workflow")),
+        ("Required issue templates", _check_required_paths(REQUIRED_ISSUE_TEMPLATES, "issue template")),
         ("Required installation docs", _check_required_paths(REQUIRED_INSTALLATION_DOCS, "installation doc")),
         ("Required planning docs", _check_required_paths(REQUIRED_PLANNING_DOCS, "planning doc")),
         ("Required example READMEs", _check_required_paths(REQUIRED_EXAMPLES, "example README")),

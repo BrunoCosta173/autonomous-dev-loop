@@ -51,6 +51,7 @@ Use one of:
 - Include command names and outcomes.
 - Do not claim validation passed unless commands actually ran.
 - If commands were unavailable or not run, say why.
+- If no validation commands were found, state `not available - no commands found` or `not run - no commands found`.
 - Distinguish failures caused by current work from pre-existing or unrelated failures.
 - Mention safety gates even if they were only encountered and not approved.
 - Include review rounds, reviewer scores, required fixes, deferred suggestions, and final review status.

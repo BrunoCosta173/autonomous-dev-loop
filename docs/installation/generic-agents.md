@@ -14,6 +14,8 @@ For reproducible installs, use a tagged release when available.
 
 When run through a pipe, `install.sh` downloads the `main` branch archive to a temporary directory and runs the Python installer from that archive.
 
+This one-command form is Linux/macOS-oriented. Windows users should clone the repository and run `python scripts/install.py`, or use local `install.ps1` after inspecting it.
+
 Inspect-first alternative:
 
 ```bash
@@ -102,6 +104,8 @@ The installer does not overwrite existing adapter files unless `--force` is used
 ```powershell
 ./install.ps1 --target generic --scope project --project-dir path/to/target-project
 ```
+
+The PowerShell wrapper is intended for local use from a cloned repository. PowerShell one-command remote installation is not implemented in this release.
 
 ## Optional Control File Templates
 
@@ -197,4 +201,4 @@ sh install.sh --target generic --scope project
 
 Future versions may add richer terminal commands to help install selected control file templates.
 
-Version `0.1.0` includes a Python installer and shell wrappers, but does not publish packages or marketplace/plugin entries automatically.
+Version `0.1.1` includes a Python installer and shell wrappers, but does not publish packages or marketplace/plugin entries automatically.

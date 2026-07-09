@@ -16,11 +16,14 @@ Use this checklist before merging the release branch to `main` or publishing a t
 - [x] Codex/OpenAI and Claude targets remain equivalent locally
 - [x] No private content found locally
 - [x] No external dependencies added accidentally
-- [ ] GitHub Actions passing on `main` after the `0.1.0` release commit is pushed
+- [x] Code of conduct reviewed locally
+- [x] Issue templates reviewed locally
+- [ ] GitHub Actions passing on `main` after the `0.1.1` patch commit is pushed
 - [x] Generated release packages verified locally
-- [x] Pull request merged into `main`
-- [ ] `0.1.0` release commit pushed to `main`
-- [ ] `v0.1.0` tag pushed
+- [x] Generated SHA256 checksums verified locally
+- [ ] Pull request merged into `main`
+- [ ] `0.1.1` patch commit pushed to `main`
+- [ ] `v0.1.1` tag pushed
 - [ ] Main branch should remain release-ready after merge
 
 ## Manual Smoke Tests
@@ -45,7 +48,8 @@ python3 scripts/install.py --target both --scope project --dry-run
 python3 scripts/install.py --target generic --scope project --dry-run
 python3 scripts/install.py --action update --target codex --scope project --dry-run
 python3 scripts/install.py --action uninstall --target codex --scope project --dry-run
-python3 scripts/package_release.py --version 0.1.0 --clean
+python3 scripts/package_release.py --version 0.1.1 --clean
+git ls-files dist
 ```
 
 ## Release Blockers
@@ -61,12 +65,14 @@ Do not release if any of these are true:
 - [ ] Uncommitted changes remain
 - [ ] CI is failing
 - [ ] Generated packages are missing or incorrect
+- [ ] Generated checksum files are missing or incorrect
 - [ ] Release notes are inaccurate
 
 ## Final Review Notes
 
 - One-command install should be convenient, not described as safer than local/manual install.
 - When piped from GitHub raw content, `install.sh` should download the `main` branch archive and run the Python installer from the temporary copy.
+- Windows users should use clone plus `python scripts/install.py` or local `install.ps1`; do not claim PowerShell one-command install unless implemented and tested.
 - Agent-assisted installation should prefer local installer or manual copy.
 - `main` should be treated as the latest channel.
 - Tagged releases should be used for reproducible installs when available.

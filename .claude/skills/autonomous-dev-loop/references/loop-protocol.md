@@ -7,17 +7,20 @@ When the user invokes the Skill with a development objective, run the loop in Go
 ## Core Loop
 
 1. Intake
-2. Inspect
-3. Detect stack
-4. Plan
-5. Generate ToDos
-6. Execute
-7. Test
-8. Repair
-9. Review
-10. Document
-11. Report
-12. Continue or stop
+2. Kickoff
+3. Inspect
+4. Detect stack
+5. Plan
+6. Generate ToDos
+7. Execute
+8. Test
+9. Repair
+10. Review
+11. Document
+12. Report
+13. Continue or stop
+
+The public README may present a simplified flow. This reference is the detailed Skill protocol.
 
 ## Loop Rules
 
@@ -28,6 +31,10 @@ When the user invokes the Skill with a development objective, run the loop in Go
 - Stop when the objective is complete, blocked by a safety gate, blocked by missing information, or no feasible ToDos remain.
 - Do not declare completion until relevant validation has run or been documented as unavailable, and the Review Subagent Loop passing criteria are met.
 - Persist progress in project control files when useful for continuation or traceability.
+- Default maximum autonomous cycles: 10.
+- The user may override the maximum autonomous cycle count.
+- A4 may use the full default maximum when the objective justifies it.
+- A3 remains bounded by the current objective, safety gates, review requirements, and validation results.
 
 ## Stop Conditions
 
@@ -40,6 +47,7 @@ Stop when:
 - A safety gate requires human approval.
 - The maximum review rounds are reached.
 - The maximum autonomous cycles are reached.
+- No progress is possible after a reasonable validation, repair, or review attempt.
 - The same issue repeats twice without progress.
 - The objective becomes too broad or ambiguous.
 - The user's defined budget, time, or command constraints are reached.
@@ -88,6 +96,8 @@ Work through feasible ToDos autonomously. Keep edits scoped and update ToDo stat
 Run relevant available commands. Prefer project-defined commands over invented commands.
 
 Choose the smallest relevant validation command first, then broaden only when risk or blast radius justifies it.
+
+If no relevant validation commands are found, document validation as `not available - no commands found`, use manual inspection and the Review Subagent Loop or independent review passes, and recommend adding validation commands in future when appropriate.
 
 ### Repair
 

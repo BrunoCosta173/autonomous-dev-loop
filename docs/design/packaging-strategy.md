@@ -11,7 +11,7 @@ The project has four practical package boundaries:
 3. Claude Code Skill package
 4. Generic agent adapter package
 
-Version `0.1.0` is the first public release and includes local installer and package-generation scripts plus release-ready install positioning.
+Version `0.1.1` adds SHA256 checksum files to local release package generation.
 
 It does not include release publishing automation.
 
@@ -119,7 +119,7 @@ The repository uses semantic versioning.
 Commit and release titles should use only the version number, such as:
 
 ```text
-0.1.0
+0.1.1
 ```
 
 ## Install Channels
@@ -189,15 +189,25 @@ It creates:
 
 ```text
 dist/autonomous-dev-loop-<version>.zip
+dist/autonomous-dev-loop-<version>.zip.sha256
 dist/autonomous-dev-loop-codex-<version>.zip
+dist/autonomous-dev-loop-codex-<version>.zip.sha256
 dist/autonomous-dev-loop-claude-<version>.zip
+dist/autonomous-dev-loop-claude-<version>.zip.sha256
 dist/autonomous-dev-loop-adapters-<version>.zip
+dist/autonomous-dev-loop-adapters-<version>.zip.sha256
+```
+
+Checksum files use this format:
+
+```text
+<sha256>  <filename>
 ```
 
 Generate packages:
 
 ```bash
-python3 scripts/package_release.py --version 0.1.0 --clean
+python3 scripts/package_release.py --version 0.1.1 --clean
 ```
 
 Generated `dist/` files are local release artifacts and are ignored by Git.

@@ -4,6 +4,7 @@
 from __future__ import annotations
 
 from pathlib import Path
+import hashlib
 import shutil
 import subprocess
 import sys
@@ -13,7 +14,7 @@ import zipfile
 ROOT = Path(__file__).resolve().parents[1]
 PACKAGER = ROOT / "scripts" / "package_release.py"
 DIST = ROOT / "dist"
-VERSION = "0.1.0"
+VERSION = "0.1.1"
 
 
 def run_packager(*args: str) -> subprocess.CompletedProcess[str]:
@@ -54,6 +55,20 @@ def test_expected_zip_files_created() -> None:
     for package in _expected_packages():
         if not package.is_file():
             raise AssertionError(f"Expected package was not created: {package}")
+        checksum = package.with_name(package.name + ".sha256")
+        if not checksum.is_file():
+            raise AssertionError(f"Expected checksum was not created: {checksum}")
+
+
+def test_checksum_files_match_zip_files() -> None:
+    run_packager("--version", VERSION, "--clean")
+    for package in _expected_packages():
+        checksum = package.with_name(package.name + ".sha256")
+        expected_digest = hashlib.sha256(package.read_bytes()).hexdigest()
+        expected_text = f"{expected_digest}  {package.name}\n"
+        actual_text = checksum.read_text(encoding="utf-8")
+        if actual_text != expected_text:
+            raise AssertionError(f"Checksum content mismatch: {checksum}")
 
 
 def test_full_package_exclusions() -> None:
@@ -71,6 +86,7 @@ def main() -> int:
     tests = [
         test_dry_run_does_not_create_dist,
         test_expected_zip_files_created,
+        test_checksum_files_match_zip_files,
         test_full_package_exclusions,
     ]
 

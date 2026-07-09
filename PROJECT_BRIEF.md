@@ -2,19 +2,24 @@
 
 ## Purpose
 
-`autonomous-dev-loop` is a public, reusable agent skill for structured autonomous software development loops.
+`autonomous-dev-loop` is a public, reusable agent Skill for structured autonomous software development loops.
 
-The project will help AI coding agents develop, improve, refactor, test, repair, document, and continue software projects through a controlled workflow:
+It helps AI coding agents develop, improve, refactor, test, repair, document, and continue software projects through a controlled workflow:
 
-1. Objective intake
-2. Project inspection
-3. Planning
-4. ToDo generation
-5. Execution
-6. Testing
-7. Repair
-8. Documentation
-9. Final report
+```text
+Objective intake -> kickoff -> project inspection -> planning -> ToDos -> execution -> validation -> repair -> review -> documentation -> final report
+```
+
+## Current Status
+
+The original planning foundation has been implemented.
+
+The project has reached the public `0.1.x` release line. It remains early, but usable.
+
+This document is both:
+
+- A project summary for contributors and users.
+- A historical intent document that records the original direction of the repository.
 
 ## Target Audience
 
@@ -27,18 +32,32 @@ The project is intended for:
 
 ## Compatibility Goals
 
-The primary structure should follow the OpenAI/Codex Skills format.
+The primary structure follows the OpenAI/Codex Skills format.
 
-The project should also plan compatibility for:
+The repository also supports:
 
 - Codex CLI
 - Codex Desktop/App
-- OpenAI/Codex Skills
+- OpenAI/Codex Skills-style agents
 - Claude Code CLI
 - Claude Code Desktop
-- Generic AI coding agents
+- Generic AI coding agents through adapters
 
-Compatibility adapters for Claude Code and generic agents should be planned after the primary Codex/OpenAI skill structure is defined.
+Compatibility remains environment-dependent. The project should avoid claiming universal support for platform features such as real subagents or native goal modes.
+
+## Repository Shape
+
+The repository includes:
+
+- Codex/OpenAI Skill target at `.agents/skills/autonomous-dev-loop/`
+- Claude Code Skill target at `.claude/skills/autonomous-dev-loop/`
+- Generic adapters in `adapters/`
+- Project control templates in Skill `assets/`
+- Stack and command discovery references
+- Safety gates and Review Subagent Loop guidance
+- Installer, update, and uninstall tooling
+- Release packaging and validation scripts
+- Documentation-only examples
 
 ## Autonomy Model
 
@@ -46,37 +65,39 @@ The autonomy model is:
 
 **Autonomous execution with safety gates**
 
-Agents using this skill should be allowed to:
+Agents using this Skill may:
 
-- Ask the user for the development objective
-- Transform the objective into an execution plan
-- Create a clear ToDo list
-- Execute all feasible ToDos autonomously
-- Inspect the project
-- Modify files
-- Run available build, lint, typecheck, and test commands
-- Fix failures caused by their changes
-- Continue through the planned ToDos until the objective is complete
-- Document everything clearly at the end
+- Ask the user for the development objective.
+- Transform the objective into an execution plan.
+- Create a clear ToDo list.
+- Execute feasible ToDos autonomously inside scope.
+- Inspect the project.
+- Modify files.
+- Run available build, lint, typecheck, and test commands.
+- Fix failures caused by their changes.
+- Run review passes before declaring work complete.
+- Continue through planned ToDos until the objective is complete or blocked.
+- Document everything clearly at the end.
 
 Agents must stop and request human confirmation before:
 
 - Destructive commands
 - Mass deletion
-- Database schema changes with data-loss risk
+- Database changes with data-loss risk
 - Authentication or permission changes
-- Deployment
 - Secret or environment variable handling
-- Major architectural rewrites
+- Data exfiltration or external transmission
+- Deployment
+- Major architecture rewrites
 - Framework replacement
 - Ambiguous product decisions
 - Business-critical rule changes
 
 ## Scope
 
-The skill must be generic and useful for any kind of software development project. It should not be specific to any company, product, ERP, CRM, or internal system.
+The Skill is generic and useful for many kinds of software development projects. It is not specific to any company, product, ERP, CRM, or internal system.
 
-The skill should support common software categories, including:
+It supports common software categories, including:
 
 - Web apps
 - APIs
@@ -90,30 +111,21 @@ The skill should support common software categories, including:
 
 ## Stack Strategy
 
-The skill should be stack-agnostic. It must not hardcode one stack as the default.
+The Skill is stack-agnostic. It does not hardcode one stack as the default.
 
-Instead, it should teach agents to detect the project stack by inspecting repository files, package manifests, framework conventions, and available commands.
+Instead, it teaches agents to detect the project stack by inspecting repository files, package manifests, framework conventions, CI workflows, and available commands.
 
-The skill should eventually include guidance for common stacks across:
+## Release And Versioning
 
-- Frontend frameworks
-- Backend frameworks
-- Mobile platforms
-- Databases and BaaS providers
-- Infrastructure and DevOps tooling
-
-## Initial Repository Decisions
-
-- Project name: `autonomous-dev-loop`
-- Primary language: English
 - License: MIT
-- Initial version: `0.0.1`
+- Primary language: English
 - Versioning strategy: semantic versioning
-- Commit and release titles should use only the version number, such as `0.0.1`
-- `CHANGELOG.md` should document every version
-- The current phase is planning only
-- The full skill implementation should not be created yet
+- Commit and release titles should use only the version number, such as `0.1.1`
+- `CHANGELOG.md` documents every notable version
+- Published releases and tags must not be rewritten
 
-## Next Planning Step
+## Direction
 
-Define the official repository and installation structure, including the placement of the OpenAI/Codex Skill, Claude Code compatibility files, generic adapters, examples, templates, references, and documentation.
+Near-term work should focus on release quality, documentation clarity, safety, validation, installation reliability, examples, and compatibility maintenance.
+
+Broad Skill redesigns, marketplace packaging, or complete example applications should be planned explicitly before implementation.

@@ -1,88 +1,44 @@
 # autonomous-dev-loop
 
-Structured autonomous software development loops for AI coding agents.
+[![Validate](https://github.com/BrunoCosta173/autonomous-dev-loop/actions/workflows/validate.yml/badge.svg)](https://github.com/BrunoCosta173/autonomous-dev-loop/actions/workflows/validate.yml)
+[![Package](https://github.com/BrunoCosta173/autonomous-dev-loop/actions/workflows/package.yml/badge.svg)](https://github.com/BrunoCosta173/autonomous-dev-loop/actions/workflows/package.yml)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
+[![Release](https://img.shields.io/github/v/release/BrunoCosta173/autonomous-dev-loop?label=release)](https://github.com/BrunoCosta173/autonomous-dev-loop/releases)
+[![Skills](https://img.shields.io/badge/AI%20Agent%20Skill-Codex%20%7C%20Claude%20Code%20%7C%20Generic-blue)](#compatibility)
 
-`autonomous-dev-loop` is a reusable Skill and instruction system that helps AI coding agents plan, implement, test, repair, review, document, and continue software development work with clear safety gates.
+A structured autonomous development loop for AI coding agents.
 
-Current version: `0.1.0` — first public release.
-
-## What It Does
-
-`autonomous-dev-loop` turns a user-provided development objective into a controlled agent workflow:
-
-```text
-Objective intake -> project inspection -> planning -> ToDos -> execution -> validation -> repair -> review -> documentation -> final report
-```
-
-It is designed for:
-
-- Developers who want more structured AI coding runs.
-- Vibe-coders who want agents to keep moving without losing safety.
-- Builders using Codex, Claude Code, or generic coding agents.
-- Projects that need repeatable autonomous development loops across sessions.
-
-## Why It Exists
-
-AI coding agents can move quickly, but long development tasks often need more structure:
-
-- Clear objective intake
-- Scoped execution
-- Validation before completion
-- Safety gates for risky changes
-- Review passes before final status
-- Persistent memory for continuation
-- Transparent final reporting
-
-This project packages that operating model into installable Skill targets, adapter templates, validation scripts, installer tooling, and release-ready documentation.
-
-## Key Features
-
-- Objective-driven autonomous development loop
-- Goal Completion Mode without requiring a universal `/goal` command
-- Autonomy levels from manual planning to continuous autonomous loops
-- Safety gates for destructive, sensitive, or ambiguous changes
-- Review Subagent Loop with independent review-pass fallback
-- Stack-agnostic stack and command detection guidance
-- Persistent project memory templates
-- Codex/OpenAI and Claude Code Skill targets
-- Generic agent adapter templates
-- Dependency-free Python installer
-- Update and uninstall commands
-- Local release package generation
-- Repository validation and CI workflows
-
-## How It Works
-
-The Skill starts from a development objective, such as:
+Turn a development objective into a controlled agent workflow:
 
 ```text
-Improve the user settings page.
+intake -> kickoff -> plan -> todo -> execute -> test -> repair -> review -> document -> continue safely
 ```
 
-The agent then:
+AI coding agents are powerful, but they can drift, skip tests, forget context, or declare work done too early.
 
-1. Parses the objective and asks only blocking questions.
-2. Inspects the project.
-3. Detects the stack and available commands.
-4. Creates a plan and executable ToDos.
-5. Executes feasible work inside scope.
-6. Runs relevant validation commands.
-7. Repairs failures caused by its changes.
-8. Runs review subagents when available, or independent review passes when not.
-9. Updates project memory when useful.
-10. Produces a final report.
+`autonomous-dev-loop` gives agents a repeatable operating system for software work: clear objectives, bounded autonomy, safety gates, review rounds, persistent memory, and final reports.
 
-The agent must stop for safety gates instead of silently performing high-risk work.
+Current development version: `0.1.1`
+
+## Quick Links
+
+| Section | Description |
+| --- | --- |
+| [Quick install](#quick-install) | Install with one command |
+| [How it works](#how-it-works) | Understand the development loop |
+| [Usage examples](#usage-examples) | Prompts you can copy |
+| [Compatibility](#compatibility) | Codex, Claude Code, and generic agents |
+| [Safety model](#safety-model) | Safety gates and approval rules |
+| [Documentation](#documentation) | Full docs and references |
 
 ## Quick Install
 
-For end users and vibe-coders, one-command install is the easiest path.
+> Installs the latest version from `main`.
+> For reproducible installs, use a tagged release when available.
 
-These commands install the latest version from the `main` branch. For reproducible installs, use a tagged release when available.
+The one-command install path is Linux/macOS-oriented and uses `curl | sh`. Windows users should clone the repository and run `python scripts/install.py`, or use local `install.ps1` after inspecting it.
 
-When run through a pipe, `install.sh` downloads the `main` branch archive to a temporary directory and then runs the dependency-free Python installer from that archive.
-
-### Codex/OpenAI
+### Codex / OpenAI Skills
 
 ```bash
 curl -fsSL https://raw.githubusercontent.com/BrunoCosta173/autonomous-dev-loop/main/install.sh | sh -s -- --target codex --scope project
@@ -94,15 +50,15 @@ curl -fsSL https://raw.githubusercontent.com/BrunoCosta173/autonomous-dev-loop/m
 curl -fsSL https://raw.githubusercontent.com/BrunoCosta173/autonomous-dev-loop/main/install.sh | sh -s -- --target claude --scope project
 ```
 
-### Both Skill Targets
+### Both
 
 ```bash
 curl -fsSL https://raw.githubusercontent.com/BrunoCosta173/autonomous-dev-loop/main/install.sh | sh -s -- --target both --scope project
 ```
 
-One-command install is convenient, but it is still remote script execution. Inspect scripts before running them when security matters.
+### Safer Install
 
-Safer inspect-first pattern:
+Remote script execution is convenient, not safer. Inspect first when security matters:
 
 ```bash
 curl -fsSL https://raw.githubusercontent.com/BrunoCosta173/autonomous-dev-loop/main/install.sh -o install.sh
@@ -110,323 +66,223 @@ cat install.sh
 sh install.sh --target codex --scope project
 ```
 
-## Install For Codex/OpenAI
+## Features
 
-Install into the current project:
+| Feature | What It Does |
+| --- | --- |
+| Goal Completion Mode | Treats a user objective as the active goal and drives it toward completion |
+| Safety Gates | Stops before risky actions like destructive commands, secrets, auth, database, deployment, or data exfiltration |
+| Review Subagent Loop | Uses real subagents when available, or independent review passes as fallback |
+| Persistent Memory | Uses project control files to preserve context across sessions |
+| Stack Detection | Inspects project files and commands instead of assuming a stack |
+| Installer | Supports install, update, uninstall, dry-run, project scope, and user scope |
+| Dual Skill Targets | Supports Codex/OpenAI Skills and Claude Code Skills |
 
-```bash
-python3 scripts/install.py --target codex --scope project
-```
+## Compatibility
 
-Install into a supported user-level location:
+Compatibility depends on the current agent environment. Native Skill support, real subagents, and long-run goal modes are not universal.
 
-```bash
-python3 scripts/install.py --target codex --scope user
-```
+| Target | Skill Path | Best For |
+| --- | --- | --- |
+| Codex / OpenAI | `.agents/skills/autonomous-dev-loop/` | Codex CLI, Codex Desktop/App, OpenAI Skills-style agents |
+| Claude Code | `.claude/skills/autonomous-dev-loop/` | Claude Code CLI/Desktop |
+| Generic agents | `AGENTS.md` / `GENERIC_AGENT.md` adapters | Agents without native Skill support |
 
-Manual project-level install:
+## How It Works
 
-```bash
-mkdir -p .agents/skills
-cp -R path/to/autonomous-dev-loop/.agents/skills/autonomous-dev-loop .agents/skills/
-```
-
-Codex/OpenAI Skill folder:
-
-```text
-.agents/skills/autonomous-dev-loop/
-```
-
-See [Codex/OpenAI installation](docs/installation/codex-openai.md).
-
-## Install For Claude Code
-
-Install into the current project:
-
-```bash
-python3 scripts/install.py --target claude --scope project
-```
-
-Install into a supported user-level location:
-
-```bash
-python3 scripts/install.py --target claude --scope user
-```
-
-Manual project-level install:
-
-```bash
-mkdir -p .claude/skills
-cp -R path/to/autonomous-dev-loop/.claude/skills/autonomous-dev-loop .claude/skills/
-```
-
-Claude Code Skill folder:
+This is the detailed Skill protocol:
 
 ```text
-.claude/skills/autonomous-dev-loop/
+1. Objective intake
+2. Kickoff
+3. Project inspection
+4. Stack and command discovery
+5. Execution plan
+6. ToDo generation
+7. Implementation
+8. Validation
+9. Repair
+10. Review Subagent Loop
+11. Documentation
+12. Handoff
+13. Continue or stop
 ```
 
-See [Claude Code installation](docs/installation/claude-code.md).
+The simplified flow at the top of this README is only a public overview.
 
-## Install For Generic Agents
+## For Humans
 
-Generic agents can use adapter templates when they do not support Skill folders.
+Use one-command install, then ask your coding agent to use `autonomous-dev-loop` with a clear development objective.
 
-Install adapters into the current project:
+Good objectives name the target area, desired outcome, constraints, and validation expectations.
 
-```bash
-python3 scripts/install.py --target generic --scope project
-```
+## For Agents
 
-Manual install:
-
-```bash
-cp path/to/autonomous-dev-loop/adapters/AGENTS.md ./AGENTS.md
-```
-
-Available adapters:
-
-- `adapters/AGENTS.md`
-- `adapters/CLAUDE.md`
-- `adapters/GENERIC_AGENT.md`
-
-See [generic agent installation](docs/installation/generic-agents.md).
-
-## Agent-Assisted Installation
-
-Agents should prefer transparent installation instead of piping remote scripts directly into a shell.
-
-Recommended agent flow:
+Prefer transparent installation:
 
 1. Inspect the repository.
 2. Confirm the target agent: Codex/OpenAI, Claude Code, both, or generic.
-3. Use the local installer or copy the proper folder.
-4. Avoid overwriting existing project instructions without asking.
-5. Verify installed files.
-6. Report what changed.
-
-Example prompt:
-
-```text
-Install autonomous-dev-loop for Codex/OpenAI in this project.
-Use manual or local installer installation.
-Do not pipe remote scripts into the shell.
-Do not overwrite existing AGENTS.md or CLAUDE.md without asking.
-Verify the installed Skill folder and summarize what changed.
-```
+3. Use the local installer or manually copy the correct Skill folder.
+4. Do not pipe remote scripts unless explicitly authorized.
+5. Do not overwrite existing `AGENTS.md` or `CLAUDE.md` without asking.
+6. Verify installation and summarize what changed.
 
 See [agent-assisted installation](docs/installation/agent-assisted-installation.md).
 
-## Basic Usage Examples
+## Install Locally
 
-### UI Improvement
+From a local clone:
+
+```bash
+python3 scripts/install.py --target codex --scope project
+python3 scripts/install.py --target claude --scope project
+python3 scripts/install.py --target both --scope project
+python3 scripts/install.py --target generic --scope project
+```
+
+Preview first:
+
+```bash
+python3 scripts/install.py --target both --scope project --dry-run
+```
+
+Update:
+
+```bash
+python3 scripts/install.py --action update --target both --scope project --yes
+```
+
+Uninstall dry-run:
+
+```bash
+python3 scripts/install.py --action uninstall --target codex --scope project --dry-run
+```
+
+## Usage Examples
 
 ```text
 Use autonomous-dev-loop to improve the user settings page.
-Focus on UI consistency, form validation, loading states, and accessibility.
+Focus on UI consistency, validation, loading states, and accessibility.
 Do not change database schema, authentication, or dependencies.
-Run available lint, typecheck, and build commands.
 Use A3 autonomy.
 ```
-
-### API Testing
 
 ```text
 Use autonomous-dev-loop to add tests for the orders API.
 Focus on request validation, success responses, and error cases.
 Do not change database schema or authentication rules.
 Run available test and lint commands.
-Use A3 autonomy.
 ```
-
-### Workflow Improvement
 
 ```text
-Use autonomous-dev-loop to improve the invoice creation workflow.
-Focus on validation, controller clarity, form request rules, and test coverage.
-Do not change production migrations or payment logic without approval.
-Run available framework validation commands.
-Use A3 autonomy.
+Use autonomous-dev-loop to review this module and create a prioritized ToDo list.
+Do not edit files yet. Use A0 autonomy.
 ```
 
-More examples:
+```text
+Use autonomous-dev-loop to continue the previous run from TODO.md and DEVELOPMENT_LOG.md.
+Ask only blocking questions.
+Stop at safety gates.
+```
 
-- [Next.js app](examples/nextjs-app/README.md)
-- [FastAPI API](examples/fastapi-api/README.md)
-- [Laravel app](examples/laravel-app/README.md)
+## Safety Model
 
-## Autonomy Levels
+`autonomous-dev-loop` is designed for autonomy with guardrails.
 
-- `A0 — Manual`: the agent proposes plans and instructions only.
-- `A1 — Assisted`: the agent inspects and proposes changes, but asks before editing.
-- `A2 — Supervised`: the agent edits and validates in approved batches.
-- `A3 — Autonomous With Safety Gates`: default recommended mode.
-- `A4 — Continuous Autonomous Loop`: broad continuation inside the original objective, only when explicitly requested.
+The agent must stop and ask for approval before actions involving:
 
-`A3` is the default. `A4` still stops at safety gates and must not expand beyond the user-provided objective.
+- destructive commands
+- mass deletion
+- database migrations with data-loss risk
+- authentication or permission changes
+- secrets or environment variables
+- deployment
+- major architecture rewrites
+- critical dependencies
+- licensing changes
+- external data transmission or data exfiltration
 
-## Safety Gates
+## Review Before Done
 
-The agent must stop and request confirmation before:
+The agent should not declare work complete immediately after coding.
 
-- Destructive commands
-- Mass deletion
-- Data-loss migrations
-- Authentication, authorization, or permission changes
-- Secret or environment variable handling
-- Deployment
-- Major architectural rewrites
-- Framework replacement
-- Business-critical rule changes
-- Irreversible operations
-- Ambiguous product decisions that materially affect behavior
+Before completion, it runs a review cycle:
 
-Safety gates are part of the core design, not an optional add-on.
+```text
+implementation -> validation -> review -> score -> fix -> revalidate -> final report
+```
 
-## Review Subagent Loop
+When real subagents are available, they can be used as read-only reviewers.
+When they are not available, the agent performs independent review passes using the same reviewer roles and rubrics.
 
-Before declaring non-trivial work complete, the Skill requires review.
-
-Primary mode:
-
-- Use real review subagents when the current environment supports them.
-
-Fallback mode:
-
-- Run independent review passes with the same reviewer roles and rubrics.
-
-Real subagent support is environment-dependent and is not claimed as universal.
-
-## Goal Completion Mode
-
-When the user invokes `autonomous-dev-loop` with a development objective, the agent treats that objective as the active goal and works toward completion.
-
-The user does not need to type `/goal`.
-
-If a platform has a native goal or long-run workflow, the agent may use it when appropriate. If not, the Skill emulates goal-oriented execution through ToDos, validation, review, documentation, and final reporting.
-
-Native `/goal` support is not assumed to be universal.
-
-## Persistent Project Memory
+## Persistent Memory
 
 The Skill can create or update project control files when useful:
 
-- `AGENTS.md`
-- `CLAUDE.md`
-- `BACKLOG.md`
-- `ROADMAP.md`
 - `TODO.md`
 - `DEVELOPMENT_LOG.md`
 - `TEST_PLAN.md`
 - `DECISIONS.md`
 - `KNOWN_ISSUES.md`
 - `FINAL_REPORT.md`
+- `BACKLOG.md`
+- `ROADMAP.md`
 
-It should not force every file into every project. These files are used when they improve continuity, traceability, or cross-session handoff.
+It should not force every file into every project. By default, it should not create more than 3 project control files in one run unless the user explicitly requests more or the objective clearly requires it.
 
-## Supported Stacks
+## Validation And Packaging
 
-The Skill is stack-agnostic.
-
-It detects project structure, stack, package managers, and validation commands from files such as:
-
-- `package.json`, lockfiles, framework config files
-- `pyproject.toml`, `requirements.txt`, `manage.py`
-- `composer.json`, `artisan`
-- `Gemfile`, Rails files
-- `pom.xml`, Gradle files
-- `.sln`, `.csproj`
-- `go.mod`
-- `Cargo.toml`
-- mobile project files
-- Docker, Compose, CI, and infrastructure files
-
-It prefers project-defined commands over invented commands and never claims validation passed unless validation actually ran.
-
-## Validation And CI
-
-Run all repository checks:
+Run local validation:
 
 ```bash
 python3 scripts/validate_repository.py
-```
-
-Focused checks:
-
-```bash
 python3 scripts/check_skill_equivalence.py
 python3 scripts/check_private_content.py
 python3 scripts/test_installer.py
 python3 scripts/test_packaging.py
 ```
 
-GitHub Actions workflows:
-
-- `.github/workflows/validate.yml`
-- `.github/workflows/package.yml`
-
-Release readiness:
-
-- [Validation strategy](docs/design/validation-strategy.md)
-- [Release readiness](docs/design/release-readiness.md)
-- [Release candidate checklist](docs/release/RELEASE_CANDIDATE_CHECKLIST.md)
-
-## Packaging
-
-Generate local release packages:
+Generate release packages and SHA256 checksums:
 
 ```bash
-python3 scripts/package_release.py --version 0.1.0 --clean
+python3 scripts/package_release.py --version 0.1.1 --clean
 ```
 
-Expected output:
+Expected package examples:
 
 ```text
-dist/autonomous-dev-loop-0.1.0.zip
-dist/autonomous-dev-loop-codex-0.1.0.zip
-dist/autonomous-dev-loop-claude-0.1.0.zip
-dist/autonomous-dev-loop-adapters-0.1.0.zip
+dist/autonomous-dev-loop-0.1.1.zip
+dist/autonomous-dev-loop-0.1.1.zip.sha256
+dist/autonomous-dev-loop-codex-0.1.1.zip
+dist/autonomous-dev-loop-codex-0.1.1.zip.sha256
 ```
 
-The packaging workflow validates package generation, but does not publish artifacts or create GitHub releases.
+## Documentation
 
-Draft release notes:
+| Document | Purpose |
+| --- | --- |
+| [Installation: Codex/OpenAI](docs/installation/codex-openai.md) | Install for Codex/OpenAI Skills |
+| [Installation: Claude Code](docs/installation/claude-code.md) | Install for Claude Code |
+| [Generic agents](docs/installation/generic-agents.md) | Use adapters with other agents |
+| [Compatibility matrix](docs/design/compatibility-matrix.md) | Supported targets and fallbacks |
+| [Validation strategy](docs/design/validation-strategy.md) | Local and CI validation |
+| [Release readiness](docs/design/release-readiness.md) | Release checklist and criteria |
+| [Release checklist](docs/release/RELEASE_CANDIDATE_CHECKLIST.md) | Pre-release checks |
+| [Release notes 0.1.1](docs/release/RELEASE_NOTES_0.1.1.md) | Patch release notes |
 
-- [Release notes 0.1.0](docs/release/RELEASE_NOTES_0.1.0.md)
+## Limitations
 
-## Roadmap
-
-Near-term:
-
-- Final pre-merge release candidate validation
-- PR preparation for `main`
-- First tagged release
-- More example walkthroughs
-
-Future possibilities:
-
-- Skill target sync tooling
-- Example project smoke tests
-- More stack-specific playbooks
-- Marketplace or plugin packaging if supported by the relevant agent ecosystem
-
-Marketplace or plugin packaging is future ecosystem-dependent work, not current functionality.
+- Real subagent support is environment-dependent.
+- Native `/goal` support is environment-dependent.
+- One-command install is Linux/macOS-oriented.
+- Example folders are documentation examples, not complete applications.
+- Marketplace or plugin packaging is not currently published.
 
 ## Contributing
 
-Read:
+Read [CONTRIBUTING.md](CONTRIBUTING.md) before opening a pull request.
 
-- [Contributing](CONTRIBUTING.md)
-- [Project brief](PROJECT_BRIEF.md)
-- [Repository structure](docs/design/repository-structure.md)
-- [Skill architecture](docs/design/skill-architecture.md)
-
-Development rules:
-
-- Keep content generic and public.
-- Keep Skill targets behaviorally equivalent.
-- Keep installer and validation tooling dependency-free.
-- Update `CHANGELOG.md` for notable changes.
+Keep content public, generic, and stack-agnostic. Preserve behavioral equivalence between Codex/OpenAI and Claude Skill targets.
 
 ## License
 

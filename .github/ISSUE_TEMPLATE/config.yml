@@ -1,0 +1,5 @@
+blank_issues_enabled: true
+contact_links:
+  - name: Security or private report
+    url: https://github.com/BrunoCosta173/autonomous-dev-loop/issues
+    about: Open a minimal issue asking for a private maintainer contact path. Do not post secrets or confidential details publicly.
