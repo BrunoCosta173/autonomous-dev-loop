@@ -4,6 +4,10 @@ Use agent-assisted installation when a user wants an AI coding agent to copy the
 
 The installer agent should not modify application code.
 
+Agents should prefer transparent manual or local installer workflows.
+
+Agents should not pipe remote scripts into a shell unless the user explicitly authorizes that behavior.
+
 ## General Rules
 
 - Confirm the target agent environment: Codex/OpenAI, Claude Code, or generic agent.
@@ -18,9 +22,11 @@ The installer agent should not modify application code.
 
 ```text
 Install autonomous-dev-loop in this project using the repository installer.
+Inspect the repository first.
 Use a dry run first.
 Then install the target that matches this agent environment.
 Do not modify application code.
+Do not pipe remote scripts into the shell.
 Do not overwrite existing project instructions without asking.
 After installation, verify the expected Skill folder or adapter exists and summarize what changed.
 ```

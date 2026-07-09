@@ -61,6 +61,8 @@ If a local environment does not provide `python`, use the available Python comma
 - Required installation docs exist.
 - Required planning docs exist.
 - Required example README files exist.
+- Release candidate checklist and draft release notes exist.
+- README includes quick install, agent-assisted installation, and release readiness links.
 - `CHANGELOG.md` includes the current version.
 - Basic text hygiene passes for repository text files.
 - Installer scripts, wrappers, tests, and workflows exist.
@@ -130,5 +132,6 @@ Current validation does not:
 - Prove that native goal modes are available.
 - Validate third-party marketplace or plugin packaging.
 - Publish GitHub releases.
+- Prove that the `main` branch remote install command is appropriate for every user's security posture.
 
 Future versions may add deeper validation when those workflows exist.

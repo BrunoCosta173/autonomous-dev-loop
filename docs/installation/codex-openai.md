@@ -2,6 +2,24 @@
 
 Use this guide to install the Codex/OpenAI Skill target.
 
+## Quick Install For Users
+
+This installs the latest version from the `main` branch:
+
+```bash
+curl -fsSL https://raw.githubusercontent.com/BrunoCosta173/autonomous-dev-loop/main/install.sh | sh -s -- --target codex --scope project
+```
+
+For reproducible installs, use a tagged release when available.
+
+Inspect-first alternative:
+
+```bash
+curl -fsSL https://raw.githubusercontent.com/BrunoCosta173/autonomous-dev-loop/main/install.sh -o install.sh
+cat install.sh
+sh install.sh --target codex --scope project
+```
+
 ## Purpose
 
 Use this installation target for Codex/OpenAI-compatible Skill environments, including project-level Skill folders and personal Skill directories when supported by the user's agent setup.
@@ -117,7 +135,9 @@ You can ask an AI coding agent to install the Skill into a target project:
 
 ```text
 Install autonomous-dev-loop for Codex/OpenAI in this project.
-Copy the Skill from this repository into .agents/skills/autonomous-dev-loop.
+Use manual or local installer installation.
+Do not pipe remote scripts into the shell.
+Copy the Skill from this repository into .agents/skills/autonomous-dev-loop, or run the local installer after inspecting it.
 Do not modify application code.
 After installation, verify the folder exists and summarize what changed.
 ```
@@ -148,16 +168,18 @@ rm -rf .agents/skills/autonomous-dev-loop
 
 This is a destructive command. Review the path before running it.
 
-## Optional One-Line Install Pattern
+## One-Command Install Notes
 
-One-line remote execution is not the default recommended path.
+The quick install command near the top of this document uses `main` as the latest channel.
 
-Inspect remote scripts before executing them.
+For reproducible installs, use a tagged release when available.
 
-Future-ready pattern:
+Inspect-first pattern:
 
 ```bash
-curl -fsSL https://raw.githubusercontent.com/<owner>/autonomous-dev-loop/<ref>/install.sh | sh -s -- --target codex --scope project
+curl -fsSL https://raw.githubusercontent.com/BrunoCosta173/autonomous-dev-loop/main/install.sh -o install.sh
+cat install.sh
+sh install.sh --target codex --scope project
 ```
 
 ## Future Installer
@@ -168,4 +190,4 @@ Future versions may add:
 - Skill target validation during install
 - Marketplace or plugin packaging if supported by the relevant agent ecosystem
 
-Version `0.0.10` includes a Python installer and shell wrappers, but does not publish packages or marketplace/plugin entries automatically.
+Version `0.0.11` includes a Python installer and shell wrappers, but does not publish packages or marketplace/plugin entries automatically.

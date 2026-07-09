@@ -4,6 +4,17 @@ All notable changes to this project will be documented in this file.
 
 This project uses semantic versioning.
 
+## 0.0.11
+
+### Added
+
+- Reworked the README into a release-candidate public structure.
+- Added user-facing one-command install positioning for the `main` latest channel.
+- Added agent-assisted installation guidance that prefers manual or local installer workflows.
+- Added the first release candidate checklist.
+- Added draft release notes for `0.0.11`.
+- Updated release-readiness, packaging, validation, compatibility, and installation documentation for release candidate review.
+
 ## 0.0.10
 
 ### Added

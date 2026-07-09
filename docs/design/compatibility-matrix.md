@@ -12,6 +12,9 @@ Do not treat this matrix as a guarantee that every platform supports every featu
 
 ## Feature Notes
 
+- The README uses `main` as the latest install channel for end-user one-command install.
+- Tagged releases should be used for reproducible installs when available.
+- Agent-assisted installation should prefer manual copy or local installer commands after repository inspection.
 - Native `/goal` or long-run modes are optional platform features, not universal requirements.
 - Real review subagents are environment-dependent.
 - Independent review passes are the required fallback when real subagents are unavailable.

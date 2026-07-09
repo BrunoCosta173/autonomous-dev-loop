@@ -13,7 +13,7 @@ from check_skill_equivalence import compare_skill_targets
 
 
 ROOT = Path(__file__).resolve().parents[1]
-CURRENT_VERSION = "0.0.10"
+CURRENT_VERSION = "0.0.11"
 
 CODEX_SKILL = ROOT / ".agents" / "skills" / "autonomous-dev-loop"
 CLAUDE_SKILL = ROOT / ".claude" / "skills" / "autonomous-dev-loop"
@@ -41,6 +41,8 @@ REQUIRED_REPOSITORY_DOCS = [
     "docs/design/compatibility-matrix.md",
     "docs/design/validation-strategy.md",
     "docs/design/release-readiness.md",
+    "docs/release/RELEASE_CANDIDATE_CHECKLIST.md",
+    "docs/release/RELEASE_NOTES_0.0.11.md",
 ]
 
 REQUIRED_SCRIPT_FILES = [
@@ -80,6 +82,7 @@ REQUIRED_PLANNING_DOCS = [
     "docs/planning/STEP_8_PACKAGING_INSTALLATION_EXAMPLES.md",
     "docs/planning/STEP_9_VALIDATION_RELEASE_READINESS.md",
     "docs/planning/STEP_10_INSTALLER_UPDATE_UNINSTALL_PACKAGING.md",
+    "docs/planning/STEP_11_RELEASE_CANDIDATE_README.md",
 ]
 
 REQUIRED_EXAMPLES = [
@@ -254,6 +257,27 @@ def _check_changelog() -> list[str]:
     return []
 
 
+def _check_readme_release_candidate_sections() -> list[str]:
+    readme = ROOT / "README.md"
+    text = _read_text(readme)
+    if text is None:
+        return ["README.md is missing or unreadable"]
+
+    required_patterns = {
+        "Quick Install section": "## Quick Install",
+        "one-command main install": "raw.githubusercontent.com/BrunoCosta173/autonomous-dev-loop/main/install.sh",
+        "Agent-assisted installation section": "## Agent-Assisted Installation",
+        "release checklist link": "docs/release/RELEASE_CANDIDATE_CHECKLIST.md",
+        "release readiness link": "docs/design/release-readiness.md",
+    }
+
+    failures: list[str] = []
+    for label, pattern in required_patterns.items():
+        if pattern not in text:
+            failures.append(f"README.md missing {label}")
+    return failures
+
+
 def _run_command(label: str, command: list[str]) -> list[str]:
     result = subprocess.run(
         command,
@@ -337,6 +361,7 @@ def run_validation() -> list[str]:
         ("Required planning docs", _check_required_paths(REQUIRED_PLANNING_DOCS, "planning doc")),
         ("Required example READMEs", _check_required_paths(REQUIRED_EXAMPLES, "example README")),
         ("Changelog current version", _check_changelog()),
+        ("README release candidate sections", _check_readme_release_candidate_sections()),
         ("Installer commands and tests", _check_installer_commands()),
         ("Packaging commands and tests", _check_packaging_commands()),
         ("Text hygiene", _check_text_hygiene()),

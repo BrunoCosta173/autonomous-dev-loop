@@ -2,6 +2,19 @@
 
 Use this guide when the Skill or adapter does not appear to work after manual or agent-assisted installation.
 
+## One-Command Install Notes
+
+README one-command install examples use the `main` branch as the latest channel.
+
+For reproducible installs, use a tagged release when available.
+
+If a one-command install fails:
+
+- Download and inspect `install.sh`.
+- Run the script locally with the same arguments.
+- Try the Python installer directly.
+- Confirm the target project directory is correct.
+
 ## Skill Is Not Detected
 
 Check:
@@ -109,16 +122,16 @@ The installer removes only known Skill folders and adapter files. User-modified 
 Generate release packages:
 
 ```bash
-python3 scripts/package_release.py --version 0.0.10 --clean
+python3 scripts/package_release.py --version 0.0.11 --clean
 ```
 
 Expected files:
 
 ```text
-dist/autonomous-dev-loop-0.0.10.zip
-dist/autonomous-dev-loop-codex-0.0.10.zip
-dist/autonomous-dev-loop-claude-0.0.10.zip
-dist/autonomous-dev-loop-adapters-0.0.10.zip
+dist/autonomous-dev-loop-0.0.11.zip
+dist/autonomous-dev-loop-codex-0.0.11.zip
+dist/autonomous-dev-loop-claude-0.0.11.zip
+dist/autonomous-dev-loop-adapters-0.0.11.zip
 ```
 
 If packaging fails:

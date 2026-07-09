@@ -11,7 +11,7 @@ The project has four practical package boundaries:
 3. Claude Code Skill package
 4. Generic agent adapter package
 
-Version `0.0.10` includes local installer and package-generation scripts.
+Version `0.0.11` includes local installer and package-generation scripts plus release-candidate install positioning.
 
 It does not include release publishing automation.
 
@@ -119,8 +119,20 @@ The repository uses semantic versioning.
 Commit and release titles should use only the version number, such as:
 
 ```text
-0.0.10
+0.0.11
 ```
+
+## Install Channels
+
+The public README treats `main` as the latest channel for end-user one-command install:
+
+```bash
+curl -fsSL https://raw.githubusercontent.com/BrunoCosta173/autonomous-dev-loop/main/install.sh | sh -s -- --target codex --scope project
+```
+
+For reproducible installs, use a tagged release when available.
+
+Agent-assisted installation should prefer transparent manual copy or local installer commands after inspecting the repository.
 
 ## Installer Package
 
@@ -185,7 +197,7 @@ dist/autonomous-dev-loop-adapters-<version>.zip
 Generate packages:
 
 ```bash
-python3 scripts/package_release.py --version 0.0.10 --clean
+python3 scripts/package_release.py --version 0.0.11 --clean
 ```
 
 Generated `dist/` files are local release artifacts and are ignored by Git.

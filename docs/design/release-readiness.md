@@ -18,6 +18,7 @@ A version is release-ready when:
 - Installer tests pass.
 - Packaging tests pass.
 - Expected release zip packages can be generated locally.
+- Release candidate checklist is reviewed.
 - GitHub Actions validation is passing.
 - Manual review is complete.
 
@@ -30,7 +31,7 @@ python scripts/validate_repository.py
 python scripts/check_skill_equivalence.py
 python scripts/check_private_content.py
 python scripts/test_installer.py
-python scripts/package_release.py --version 0.0.10 --clean
+python scripts/package_release.py --version 0.0.11 --clean
 python scripts/test_packaging.py
 ```
 
@@ -58,6 +59,9 @@ Confirm:
 - No `/goal` support is claimed as universal.
 - No real subagent support is claimed as universal.
 - Marketplace or plugin packaging is documented only as future ecosystem-dependent work.
+- Public README one-command install uses `main` as the latest channel.
+- Agent-assisted installation documentation prefers manual or local installer workflows.
+- Tagged releases are recommended for reproducible installs when available.
 
 ## Versioning Rules
 
@@ -66,12 +70,12 @@ Use semantic versioning.
 Commit and release titles should use only the version number, such as:
 
 ```text
-0.0.10
+0.0.11
 ```
 
 ## Current Release Automation Boundary
 
-Version `0.0.10` includes local installer, update, uninstall, and package-generation scripts plus GitHub Actions validation and packaging checks.
+Version `0.0.11` includes release-candidate README structure, release checklist, draft release notes, local installer, update, uninstall, and package-generation scripts plus GitHub Actions validation and packaging checks.
 
 It does not include:
 
@@ -79,6 +83,12 @@ It does not include:
 - Package publishing
 - Marketplace publishing
 - Automatic GitHub release creation
+
+## Release Candidate Checklist
+
+Use `docs/release/RELEASE_CANDIDATE_CHECKLIST.md` before merging to `main` or publishing a tagged release.
+
+The checklist covers required checks, manual smoke tests, and release blockers.
 
 ## Future Release Work
 

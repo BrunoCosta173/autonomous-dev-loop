@@ -2,6 +2,24 @@
 
 Use this guide when an AI coding agent does not support Codex/OpenAI Skills or Claude Code Skills directly, but can read project-local instruction files.
 
+## Quick Install For Users
+
+This installs generic adapter files from the latest version on the `main` branch:
+
+```bash
+curl -fsSL https://raw.githubusercontent.com/BrunoCosta173/autonomous-dev-loop/main/install.sh | sh -s -- --target generic --scope project
+```
+
+For reproducible installs, use a tagged release when available.
+
+Inspect-first alternative:
+
+```bash
+curl -fsSL https://raw.githubusercontent.com/BrunoCosta173/autonomous-dev-loop/main/install.sh -o install.sh
+cat install.sh
+sh install.sh --target generic --scope project
+```
+
 ## Purpose
 
 Generic installation gives an agent durable project instructions and optional control file templates. It does not install a native Skill runtime.
@@ -108,6 +126,8 @@ You can ask an AI coding agent to install a generic adapter:
 
 ```text
 Install autonomous-dev-loop generic instructions in this project.
+Use manual or local installer installation.
+Do not pipe remote scripts into the shell.
 Copy adapters/AGENTS.md to AGENTS.md if this project does not already have one.
 If an instruction file already exists, summarize the conflict and ask before overwriting it.
 Do not modify application code.
@@ -155,20 +175,22 @@ rm AGENTS.md
 
 This is a destructive command. Review the file before running it.
 
-## Optional One-Line Install Pattern
+## One-Command Install Notes
 
-One-line remote execution is not the default recommended path.
+The quick install command near the top of this document uses `main` as the latest channel.
 
-Inspect remote scripts before executing them.
+For reproducible installs, use a tagged release when available.
 
-Future-ready pattern:
+Inspect-first pattern:
 
 ```bash
-curl -fsSL https://raw.githubusercontent.com/<owner>/autonomous-dev-loop/<ref>/install.sh | sh -s -- --target generic --scope project
+curl -fsSL https://raw.githubusercontent.com/BrunoCosta173/autonomous-dev-loop/main/install.sh -o install.sh
+cat install.sh
+sh install.sh --target generic --scope project
 ```
 
 ## Future Installer
 
 Future versions may add richer terminal commands to help install selected control file templates.
 
-Version `0.0.10` includes a Python installer and shell wrappers, but does not publish packages or marketplace/plugin entries automatically.
+Version `0.0.11` includes a Python installer and shell wrappers, but does not publish packages or marketplace/plugin entries automatically.
