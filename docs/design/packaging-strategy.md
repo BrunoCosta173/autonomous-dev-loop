@@ -11,7 +11,9 @@ The project has four practical package boundaries:
 3. Claude Code Skill package
 4. Generic agent adapter package
 
-No installer scripts or release packaging automation are included in version `0.0.9`.
+Version `0.0.10` includes local installer and package-generation scripts.
+
+It does not include release publishing automation.
 
 ## Repository Package
 
@@ -117,15 +119,81 @@ The repository uses semantic versioning.
 Commit and release titles should use only the version number, such as:
 
 ```text
-0.0.8
+0.0.10
 ```
+
+## Installer Package
+
+The main installer is:
+
+```text
+scripts/install.py
+```
+
+Wrappers:
+
+```text
+install.sh
+install.ps1
+```
+
+Supported actions:
+
+- `install`
+- `update`
+- `uninstall`
+
+Supported targets:
+
+- `codex`
+- `claude`
+- `both`
+- `generic`
+
+Supported scopes:
+
+- `project`
+- `user`
+
+Generic adapters support project scope only.
+
+The installer is conservative:
+
+- It prints planned operations.
+- It supports `--dry-run`.
+- It refuses accidental overwrites unless `--force` or update behavior allows them.
+- It asks before destructive update or uninstall actions unless `--yes`, `--force`, or `--dry-run` is used.
+- It removes only known installed Skill folders and matching adapter files.
+
+## Release Packages
+
+The release packaging script is:
+
+```text
+scripts/package_release.py
+```
+
+It creates:
+
+```text
+dist/autonomous-dev-loop-<version>.zip
+dist/autonomous-dev-loop-codex-<version>.zip
+dist/autonomous-dev-loop-claude-<version>.zip
+dist/autonomous-dev-loop-adapters-<version>.zip
+```
+
+Generate packages:
+
+```bash
+python3 scripts/package_release.py --version 0.0.10 --clean
+```
+
+Generated `dist/` files are local release artifacts and are ignored by Git.
 
 ## Future Packaging Work
 
 Future versions may add:
 
-- Terminal installer command
-- Shell and PowerShell installation scripts
 - Sync script to keep Codex/OpenAI and Claude Skill targets equivalent
 - Release packaging workflow
 - Example project smoke tests

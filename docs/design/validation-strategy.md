@@ -31,6 +31,18 @@ Run the private content scan:
 python scripts/check_private_content.py
 ```
 
+Run installer tests:
+
+```bash
+python scripts/test_installer.py
+```
+
+Run package tests:
+
+```bash
+python scripts/test_packaging.py
+```
+
 If a local environment does not provide `python`, use the available Python command for that system, such as `python3`.
 
 ## What Is Validated
@@ -51,6 +63,11 @@ If a local environment does not provide `python`, use the available Python comma
 - Required example README files exist.
 - `CHANGELOG.md` includes the current version.
 - Basic text hygiene passes for repository text files.
+- Installer scripts, wrappers, tests, and workflows exist.
+- Installer help and dry-runs work.
+- Installer tests pass.
+- Packaging dry-run works.
+- Packaging tests pass.
 
 `scripts/check_skill_equivalence.py` focuses on Skill target equivalence.
 
@@ -107,11 +124,11 @@ If future versions need additional differences, update:
 Current validation does not:
 
 - Execute example project smoke tests.
-- Run installer scripts.
 - Publish packages.
 - Validate every possible agent platform.
 - Prove that real review subagents are available.
 - Prove that native goal modes are available.
 - Validate third-party marketplace or plugin packaging.
+- Publish GitHub releases.
 
 Future versions may add deeper validation when those workflows exist.

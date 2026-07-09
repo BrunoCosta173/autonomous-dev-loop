@@ -35,6 +35,68 @@ After copying, verify:
 test -f .agents/skills/autonomous-dev-loop/SKILL.md
 ```
 
+## Python Installer
+
+From this repository, install into a target project:
+
+```bash
+python3 scripts/install.py --target codex --scope project --project-dir path/to/target-project
+```
+
+Install into a supported user-level location:
+
+```bash
+python3 scripts/install.py --target codex --scope user
+```
+
+Preview first:
+
+```bash
+python3 scripts/install.py --target codex --scope project --project-dir path/to/target-project --dry-run
+```
+
+## Shell Wrapper
+
+The POSIX shell wrapper calls the Python installer:
+
+```bash
+./install.sh --target codex --scope project --project-dir path/to/target-project
+```
+
+## PowerShell Wrapper
+
+The PowerShell wrapper calls the Python installer:
+
+```powershell
+./install.ps1 --target codex --scope project --project-dir path/to/target-project
+```
+
+## Update
+
+Update an existing Codex/OpenAI project install:
+
+```bash
+python3 scripts/install.py --action update --target codex --scope project --project-dir path/to/target-project --yes
+```
+
+The update action replaces only the known installed Skill folder.
+
+## Uninstall
+
+Uninstall a Codex/OpenAI project install:
+
+```bash
+python3 scripts/install.py --action uninstall --target codex --scope project --project-dir path/to/target-project --yes
+```
+
+The uninstall action removes only:
+
+```text
+.agents/skills/autonomous-dev-loop/
+```
+
+It does not remove unrelated `.agents` files or project source files.
+
 ## Personal Skill Directory Install
 
 Some Codex/OpenAI-compatible environments may support personal or user-level Skill directories.
@@ -74,19 +136,11 @@ Run available lint, typecheck, and build commands.
 Use A3 autonomy.
 ```
 
-## Update
+## Manual Update Or Uninstall
 
-To update manually, replace the installed folder with a newer copy of:
+You can still update manually by replacing the installed folder with a newer copy of `.agents/skills/autonomous-dev-loop/`.
 
-```text
-.agents/skills/autonomous-dev-loop/
-```
-
-Review local modifications before replacing the folder. If the installed Skill was customized locally, preserve or reapply those changes intentionally.
-
-## Uninstall
-
-Remove the installed Skill folder from the target project or user Skill directory:
+You can uninstall manually by removing:
 
 ```bash
 rm -rf .agents/skills/autonomous-dev-loop
@@ -94,13 +148,24 @@ rm -rf .agents/skills/autonomous-dev-loop
 
 This is a destructive command. Review the path before running it.
 
+## Optional One-Line Install Pattern
+
+One-line remote execution is not the default recommended path.
+
+Inspect remote scripts before executing them.
+
+Future-ready pattern:
+
+```bash
+curl -fsSL https://raw.githubusercontent.com/<owner>/autonomous-dev-loop/<ref>/install.sh | sh -s -- --target codex --scope project
+```
+
 ## Future Installer
 
 Future versions may add:
 
-- Terminal installer command
-- Shell and PowerShell installation scripts
 - Release packages
 - Skill target validation during install
+- Marketplace or plugin packaging if supported by the relevant agent ecosystem
 
-No installer scripts are included in version `0.0.8`.
+Version `0.0.10` includes a Python installer and shell wrappers, but does not publish packages or marketplace/plugin entries automatically.

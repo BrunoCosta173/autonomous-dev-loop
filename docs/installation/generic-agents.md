@@ -42,6 +42,47 @@ cp path/to/autonomous-dev-loop/adapters/GENERIC_AGENT.md ./GENERIC_AGENT.md
 
 Do not overwrite existing project instructions without reviewing them first.
 
+## Python Installer
+
+Generic adapters support project scope only.
+
+From this repository, install generic adapters into a target project:
+
+```bash
+python3 scripts/install.py --target generic --scope project --project-dir path/to/target-project
+```
+
+Preview first:
+
+```bash
+python3 scripts/install.py --target generic --scope project --project-dir path/to/target-project --dry-run
+```
+
+By default, the generic target installs:
+
+- `AGENTS.md`
+- `GENERIC_AGENT.md`
+
+To also copy `CLAUDE.md`, use:
+
+```bash
+python3 scripts/install.py --target generic --scope project --project-dir path/to/target-project --with-adapters
+```
+
+The installer does not overwrite existing adapter files unless `--force` is used.
+
+## Shell Wrapper
+
+```bash
+./install.sh --target generic --scope project --project-dir path/to/target-project
+```
+
+## PowerShell Wrapper
+
+```powershell
+./install.ps1 --target generic --scope project --project-dir path/to/target-project
+```
+
 ## Optional Control File Templates
 
 The Skill asset directories contain reusable project control file templates:
@@ -86,13 +127,27 @@ Use A3 autonomy.
 
 ## Update
 
-To update manually, replace the copied adapter or merge changes from the newer template. Prefer merging when the target project has local instructions.
+Update copied adapters:
+
+```bash
+python3 scripts/install.py --action update --target generic --scope project --project-dir path/to/target-project --yes
+```
+
+The update action does not overwrite user-modified adapters unless `--force` is used.
+
+You can also update manually by replacing or merging from the newer adapter template. Prefer merging when the target project has local instructions.
 
 ## Uninstall
 
-Remove the copied adapter file only after confirming it is not used for other project instructions.
+Uninstall copied adapters:
 
-Example:
+```bash
+python3 scripts/install.py --action uninstall --target generic --scope project --project-dir path/to/target-project --with-adapters --yes
+```
+
+The uninstall action removes adapter files only when they match the repository template, unless `--force` is used.
+
+You can also remove copied adapter files manually after confirming they are not used for other project instructions:
 
 ```bash
 rm AGENTS.md
@@ -100,8 +155,20 @@ rm AGENTS.md
 
 This is a destructive command. Review the file before running it.
 
+## Optional One-Line Install Pattern
+
+One-line remote execution is not the default recommended path.
+
+Inspect remote scripts before executing them.
+
+Future-ready pattern:
+
+```bash
+curl -fsSL https://raw.githubusercontent.com/<owner>/autonomous-dev-loop/<ref>/install.sh | sh -s -- --target generic --scope project
+```
+
 ## Future Installer
 
-Future versions may add terminal commands or scripts to help install adapters and selected control file templates.
+Future versions may add richer terminal commands to help install selected control file templates.
 
-No installer scripts are included in version `0.0.8`.
+Version `0.0.10` includes a Python installer and shell wrappers, but does not publish packages or marketplace/plugin entries automatically.

@@ -5,6 +5,7 @@ from __future__ import annotations
 
 from pathlib import Path
 import re
+import subprocess
 import sys
 
 from check_private_content import scan_repository
@@ -12,13 +13,14 @@ from check_skill_equivalence import compare_skill_targets
 
 
 ROOT = Path(__file__).resolve().parents[1]
-CURRENT_VERSION = "0.0.9"
+CURRENT_VERSION = "0.0.10"
 
 CODEX_SKILL = ROOT / ".agents" / "skills" / "autonomous-dev-loop"
 CLAUDE_SKILL = ROOT / ".claude" / "skills" / "autonomous-dev-loop"
 
 SKIP_DIRS = {
     ".git",
+    "dist",
     "__pycache__",
     ".pytest_cache",
     ".mypy_cache",
@@ -41,6 +43,23 @@ REQUIRED_REPOSITORY_DOCS = [
     "docs/design/release-readiness.md",
 ]
 
+REQUIRED_SCRIPT_FILES = [
+    "scripts/install.py",
+    "scripts/package_release.py",
+    "scripts/test_installer.py",
+    "scripts/test_packaging.py",
+    "scripts/validate_repository.py",
+    "scripts/check_skill_equivalence.py",
+    "scripts/check_private_content.py",
+    "install.sh",
+    "install.ps1",
+]
+
+REQUIRED_WORKFLOWS = [
+    ".github/workflows/validate.yml",
+    ".github/workflows/package.yml",
+]
+
 REQUIRED_INSTALLATION_DOCS = [
     "docs/installation/codex-openai.md",
     "docs/installation/claude-code.md",
@@ -60,6 +79,7 @@ REQUIRED_PLANNING_DOCS = [
     "docs/planning/STEP_7_GOAL_MEMORY_HANDOFF.md",
     "docs/planning/STEP_8_PACKAGING_INSTALLATION_EXAMPLES.md",
     "docs/planning/STEP_9_VALIDATION_RELEASE_READINESS.md",
+    "docs/planning/STEP_10_INSTALLER_UPDATE_UNINSTALL_PACKAGING.md",
 ]
 
 REQUIRED_EXAMPLES = [
@@ -234,6 +254,64 @@ def _check_changelog() -> list[str]:
     return []
 
 
+def _run_command(label: str, command: list[str]) -> list[str]:
+    result = subprocess.run(
+        command,
+        cwd=ROOT,
+        text=True,
+        stdout=subprocess.PIPE,
+        stderr=subprocess.PIPE,
+    )
+    if result.returncode == 0:
+        return []
+
+    details = result.stderr.strip() or result.stdout.strip() or f"exit code {result.returncode}"
+    return [f"{label} failed: {details}"]
+
+
+def _check_installer_commands() -> list[str]:
+    commands = [
+        ("installer help", [sys.executable, "scripts/install.py", "--help"]),
+        (
+            "installer codex dry-run",
+            [sys.executable, "scripts/install.py", "--target", "codex", "--scope", "project", "--dry-run"],
+        ),
+        (
+            "installer claude dry-run",
+            [sys.executable, "scripts/install.py", "--target", "claude", "--scope", "project", "--dry-run"],
+        ),
+        (
+            "installer both dry-run",
+            [sys.executable, "scripts/install.py", "--target", "both", "--scope", "project", "--dry-run"],
+        ),
+        (
+            "installer generic dry-run",
+            [sys.executable, "scripts/install.py", "--target", "generic", "--scope", "project", "--dry-run"],
+        ),
+        ("installer tests", [sys.executable, "scripts/test_installer.py"]),
+    ]
+
+    failures: list[str] = []
+    for label, command in commands:
+        failures.extend(_run_command(label, command))
+    return failures
+
+
+def _check_packaging_commands() -> list[str]:
+    commands = [
+        (
+            "packaging dry-run",
+            [sys.executable, "scripts/package_release.py", "--version", CURRENT_VERSION, "--dry-run"],
+        ),
+        ("packaging tests", [sys.executable, "scripts/test_packaging.py"]),
+    ]
+
+    failures: list[str] = []
+    for label, command in commands:
+        failures.extend(_run_command(label, command))
+    return failures
+
+
 def _report_section(title: str, failures: list[str]) -> bool:
     if failures:
         print(f"[fail] {title}")
@@ -253,10 +331,14 @@ def run_validation() -> list[str]:
         ("Skill target equivalence", compare_skill_targets(ROOT)),
         ("Private content scan", scan_repository(ROOT)),
         ("Required repository docs", _check_required_paths(REQUIRED_REPOSITORY_DOCS, "repository doc")),
+        ("Required scripts and wrappers", _check_required_paths(REQUIRED_SCRIPT_FILES, "script or wrapper")),
+        ("Required workflows", _check_required_paths(REQUIRED_WORKFLOWS, "workflow")),
         ("Required installation docs", _check_required_paths(REQUIRED_INSTALLATION_DOCS, "installation doc")),
         ("Required planning docs", _check_required_paths(REQUIRED_PLANNING_DOCS, "planning doc")),
         ("Required example READMEs", _check_required_paths(REQUIRED_EXAMPLES, "example README")),
         ("Changelog current version", _check_changelog()),
+        ("Installer commands and tests", _check_installer_commands()),
+        ("Packaging commands and tests", _check_packaging_commands()),
         ("Text hygiene", _check_text_hygiene()),
     ]
 

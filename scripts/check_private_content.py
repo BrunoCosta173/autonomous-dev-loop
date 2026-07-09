@@ -12,6 +12,7 @@ ROOT = Path(__file__).resolve().parents[1]
 
 SKIP_DIRS = {
     ".git",
+    "dist",
     "__pycache__",
     ".pytest_cache",
     ".mypy_cache",

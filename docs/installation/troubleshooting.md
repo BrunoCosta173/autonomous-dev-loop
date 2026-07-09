@@ -85,6 +85,13 @@ If a manual update did not apply:
 - Verify `SKILL.md` changed to the expected version.
 - Restart or refresh the agent environment if needed.
 
+If installer update did not apply:
+
+- Re-run with `--dry-run` and inspect the planned operation.
+- Confirm `--project-dir` points to the target project.
+- Use `--yes` for non-interactive update confirmation.
+- Use `--force` only when intentionally replacing an existing destination.
+
 ## Uninstall Safety
 
 Removing installed Skill folders or copied adapters is destructive.
@@ -94,3 +101,29 @@ Before removal:
 - Confirm the target path.
 - Confirm the file or folder belongs to autonomous-dev-loop.
 - Preserve any project-specific local modifications if needed.
+
+The installer removes only known Skill folders and adapter files. User-modified adapters are skipped unless `--force` is used.
+
+## Packaging Troubleshooting
+
+Generate release packages:
+
+```bash
+python3 scripts/package_release.py --version 0.0.10 --clean
+```
+
+Expected files:
+
+```text
+dist/autonomous-dev-loop-0.0.10.zip
+dist/autonomous-dev-loop-codex-0.0.10.zip
+dist/autonomous-dev-loop-claude-0.0.10.zip
+dist/autonomous-dev-loop-adapters-0.0.10.zip
+```
+
+If packaging fails:
+
+- Run `python3 scripts/validate_repository.py`.
+- Confirm Skill target folders exist.
+- Confirm `CHANGELOG.md` has the expected version.
+- Remove stale `dist/` output with `--clean`.

@@ -15,6 +15,9 @@ A version is release-ready when:
 - `CHANGELOG.md` is updated for the version.
 - `README.md` status is accurate.
 - No obvious private, company-specific, environment-specific, or secret-like content is present.
+- Installer tests pass.
+- Packaging tests pass.
+- Expected release zip packages can be generated locally.
 - GitHub Actions validation is passing.
 - Manual review is complete.
 
@@ -26,6 +29,9 @@ Run:
 python scripts/validate_repository.py
 python scripts/check_skill_equivalence.py
 python scripts/check_private_content.py
+python scripts/test_installer.py
+python scripts/package_release.py --version 0.0.10 --clean
+python scripts/test_packaging.py
 ```
 
 Also run a local Skill validator when available.
@@ -45,12 +51,13 @@ Before merging or releasing, review:
 
 Confirm:
 
-- No installer scripts were added unless intentionally planned for the version.
+- Installer scripts remain dependency-free, conservative, and readable.
 - No complete example applications were added unless intentionally planned for the version.
 - No external dependencies were introduced accidentally.
 - No platform feature is described as universal when it is environment-dependent.
 - No `/goal` support is claimed as universal.
 - No real subagent support is claimed as universal.
+- Marketplace or plugin packaging is documented only as future ecosystem-dependent work.
 
 ## Versioning Rules
 
@@ -59,27 +66,25 @@ Use semantic versioning.
 Commit and release titles should use only the version number, such as:
 
 ```text
-0.0.9
+0.0.10
 ```
 
 ## Current Release Automation Boundary
 
-Version `0.0.9` includes validation workflow planning and a GitHub Actions validation workflow.
+Version `0.0.10` includes local installer, update, uninstall, and package-generation scripts plus GitHub Actions validation and packaging checks.
 
 It does not include:
 
 - Release automation
 - Package publishing
-- Installer scripts
 - Marketplace publishing
-- Generated release artifacts
+- Automatic GitHub release creation
 
 ## Future Release Work
 
 Future versions may add:
 
 - Release candidate checklist
-- Release packaging workflow
 - Generated archives for each Skill target
 - Equivalence snapshot reports
 - Example project smoke tests

@@ -58,6 +58,39 @@ Start here:
 - [Agent-assisted installation](docs/installation/agent-assisted-installation.md)
 - [Troubleshooting](docs/installation/troubleshooting.md)
 
+Install with the Python installer:
+
+```bash
+python3 scripts/install.py --target codex --scope project --project-dir path/to/target-project
+python3 scripts/install.py --target claude --scope project --project-dir path/to/target-project
+python3 scripts/install.py --target generic --scope project --project-dir path/to/target-project
+```
+
+Preview before changing files:
+
+```bash
+python3 scripts/install.py --target both --scope project --project-dir path/to/target-project --dry-run
+```
+
+Update or uninstall:
+
+```bash
+python3 scripts/install.py --action update --target codex --scope project --project-dir path/to/target-project --yes
+python3 scripts/install.py --action uninstall --target codex --scope project --project-dir path/to/target-project --yes
+```
+
+Shell wrappers are also available:
+
+```bash
+./install.sh --target codex --scope project --project-dir path/to/target-project
+```
+
+```powershell
+./install.ps1 --target codex --scope project --project-dir path/to/target-project
+```
+
+Optional one-line remote install patterns are documented, but they are not the default recommended path. Inspect remote scripts before executing them.
+
 ## Compatibility Overview
 
 The project currently documents compatibility expectations for:
@@ -88,6 +121,30 @@ python scripts/check_private_content.py
 ```
 
 The GitHub Actions workflow at `.github/workflows/validate.yml` runs these checks on pushes and pull requests.
+
+Run installer and packaging tests:
+
+```bash
+python scripts/test_installer.py
+python scripts/test_packaging.py
+```
+
+Generate local release packages:
+
+```bash
+python3 scripts/package_release.py --version 0.0.10 --clean
+```
+
+Expected output:
+
+```text
+dist/autonomous-dev-loop-0.0.10.zip
+dist/autonomous-dev-loop-codex-0.0.10.zip
+dist/autonomous-dev-loop-claude-0.0.10.zip
+dist/autonomous-dev-loop-adapters-0.0.10.zip
+```
+
+The packaging workflow validates package generation, but does not publish artifacts or create GitHub releases.
 
 See:
 
@@ -135,6 +192,7 @@ Rather than assuming a default stack, the skill should teach agents to inspect t
 - [Step 7 goal memory handoff](docs/planning/STEP_7_GOAL_MEMORY_HANDOFF.md)
 - [Step 8 packaging, installation, and examples](docs/planning/STEP_8_PACKAGING_INSTALLATION_EXAMPLES.md)
 - [Step 9 validation and release readiness](docs/planning/STEP_9_VALIDATION_RELEASE_READINESS.md)
+- [Step 10 installer, update, uninstall, and packaging](docs/planning/STEP_10_INSTALLER_UPDATE_UNINSTALL_PACKAGING.md)
 - [Repository structure design](docs/design/repository-structure.md)
 - [Skill architecture design](docs/design/skill-architecture.md)
 - [Packaging strategy](docs/design/packaging-strategy.md)

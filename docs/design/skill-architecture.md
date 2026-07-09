@@ -12,7 +12,9 @@ Step 7 added Goal Completion Mode, persistent project memory, continuation behav
 
 Step 8 added public packaging, installation, compatibility, troubleshooting, and first usage example documentation.
 
-Step 9 adds lightweight validation scripts, Skill equivalence checks, private-content scanning, CI validation, and release-readiness documentation.
+Step 9 added lightweight validation scripts, Skill equivalence checks, private-content scanning, CI validation, and release-readiness documentation.
+
+Step 10 adds installer, update, uninstall, wrapper, and local release packaging scripts.
 
 ## Installation Targets
 
@@ -38,6 +40,8 @@ Compatibility expectations are documented in `docs/design/compatibility-matrix.m
 Validation expectations are documented in `docs/design/validation-strategy.md`.
 
 Release-readiness criteria are documented in `docs/design/release-readiness.md`.
+
+Installer and release package boundaries are documented in `docs/design/packaging-strategy.md`.
 
 ## Entry Point Design
 
@@ -271,12 +275,16 @@ The repository includes lightweight validation scripts under `scripts/`:
 - `validate_repository.py`
 - `check_skill_equivalence.py`
 - `check_private_content.py`
+- `test_installer.py`
+- `test_packaging.py`
 
 These scripts use only Python standard library dependencies.
 
-The GitHub Actions workflow at `.github/workflows/validate.yml` runs the validation scripts on pushes and pull requests.
+The GitHub Actions workflow at `.github/workflows/validate.yml` runs validation and installer dry-runs on pushes and pull requests.
 
-The workflow is validation-only. It does not publish packages, create release artifacts, or run installer automation.
+The GitHub Actions workflow at `.github/workflows/package.yml` validates package generation on pushes and pull requests.
+
+The workflows do not publish packages, create GitHub releases, or run deployment automation.
 
 ## Design Constraint
 

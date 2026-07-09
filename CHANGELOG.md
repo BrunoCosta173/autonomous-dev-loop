@@ -4,6 +4,17 @@ All notable changes to this project will be documented in this file.
 
 This project uses semantic versioning.
 
+## 0.0.10
+
+### Added
+
+- Added a dependency-free Python installer with install, update, and uninstall actions for Codex/OpenAI, Claude Code, both Skill targets, and generic adapters.
+- Added POSIX shell and PowerShell installer wrappers.
+- Added release package generation for full repository, Codex/OpenAI Skill, Claude Skill, and adapters zip packages.
+- Added installer and packaging tests using only the Python standard library.
+- Updated validation workflow coverage and added a packaging check workflow.
+- Updated installation, packaging, validation, release-readiness, troubleshooting, README, and planning documentation.
+
 ## 0.0.9
 
 ### Added

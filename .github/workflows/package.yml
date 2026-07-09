@@ -1,11 +1,11 @@
-name: Validate
+name: Package
 
 on:
   push:
   pull_request:
 
 jobs:
-  validate:
+  package:
     runs-on: ubuntu-latest
 
     steps:
@@ -26,10 +26,12 @@ jobs:
       - name: Check private content
         run: python scripts/check_private_content.py
 
-      - name: Check installer commands
+      - name: Create release packages
+        run: python3 scripts/package_release.py --version 0.0.10 --clean
+
+      - name: Verify packages
         run: |
-          python3 scripts/install.py --help
-          python3 scripts/install.py --target codex --scope project --dry-run
-          python3 scripts/install.py --target claude --scope project --dry-run
-          python3 scripts/install.py --target both --scope project --dry-run
-          python3 scripts/install.py --target generic --scope project --dry-run
+          test -f dist/autonomous-dev-loop-0.0.10.zip
+          test -f dist/autonomous-dev-loop-codex-0.0.10.zip
+          test -f dist/autonomous-dev-loop-claude-0.0.10.zip
+          test -f dist/autonomous-dev-loop-adapters-0.0.10.zip

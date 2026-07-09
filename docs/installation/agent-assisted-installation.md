@@ -14,6 +14,24 @@ The installer agent should not modify application code.
 - Summarize changed files.
 - Do not create installer scripts.
 
+## Installer-Aware Prompt
+
+```text
+Install autonomous-dev-loop in this project using the repository installer.
+Use a dry run first.
+Then install the target that matches this agent environment.
+Do not modify application code.
+Do not overwrite existing project instructions without asking.
+After installation, verify the expected Skill folder or adapter exists and summarize what changed.
+```
+
+The agent may use:
+
+```bash
+python3 scripts/install.py --target codex --scope project --project-dir path/to/target-project --dry-run
+python3 scripts/install.py --target codex --scope project --project-dir path/to/target-project
+```
+
 ## Codex/OpenAI Prompt
 
 ```text
@@ -89,3 +107,12 @@ After agent-assisted installation, verify:
 Agent-assisted updates should replace only the installed Skill folder or merge adapter changes into existing project instructions.
 
 Agent-assisted uninstall should remove only the installed Skill folder or copied adapter after confirming the target path.
+
+Installer examples:
+
+```bash
+python3 scripts/install.py --action update --target both --scope project --project-dir path/to/target-project --yes
+python3 scripts/install.py --action uninstall --target codex --scope project --project-dir path/to/target-project --yes
+```
+
+For adapters, use `--with-adapters` and avoid `--force` unless the user explicitly approves overwriting or removing modified instruction files.
