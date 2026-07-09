@@ -45,6 +45,8 @@ Create a short execution plan tied directly to the objective.
 
 Convert the plan into executable ToDos with priority, status, likely files, and validation method.
 
+Use `assets/TODO.template.md` when the active run needs a persistent `TODO.md`.
+
 ### Execute
 
 Work through feasible ToDos autonomously. Keep edits scoped and update ToDo status as work progresses.
@@ -61,9 +63,13 @@ Fix failures caused by current changes. Document unrelated failures separately.
 
 Update useful project control files when doing so improves continuity or traceability.
 
+Use templates from `assets/` as starting points. Do not create every template automatically.
+
 ### Report
 
 Produce a final report with objective status, changed files, commands, results, issues, and next recommended objective.
+
+Use `assets/FINAL_REPORT.template.md` when a persistent `FINAL_REPORT.md` is useful.
 
 ## Unrelated Findings
 

@@ -1,0 +1,53 @@
+# ToDo Plan
+
+Use this file as the active execution plan for the current autonomous run.
+
+## Status Values
+
+- Pending
+- In progress
+- Done
+- Blocked
+- Deferred
+
+## ToDo Template
+
+```text
+## [ID]: [TASK]
+
+Priority: [High | Medium | Low]
+Status: [Pending | In progress | Done | Blocked | Deferred]
+
+### Rationale
+
+Why this task matters for the current objective.
+
+### Files Likely Affected
+
+- 
+
+### Validation Method
+
+Describe the command, test, inspection, or manual validation that proves this task is complete.
+
+### Notes
+
+- 
+```
+
+## Active ToDos
+
+```text
+## T1:
+
+Priority:
+Status:
+
+### Rationale
+
+### Files Likely Affected
+
+### Validation Method
+
+### Notes
+```

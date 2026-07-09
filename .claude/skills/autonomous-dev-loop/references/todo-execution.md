@@ -14,6 +14,8 @@ Recommended fields:
 - Status
 - Validation method
 
+For a persistent multi-step run, copy or adapt `assets/TODO.template.md` into the target project as `TODO.md` when it improves continuity.
+
 Example:
 
 ```text
@@ -54,6 +56,8 @@ Prioritize ToDos by:
 - Mark ToDos blocked when they require missing information or a safety gate.
 - Mark ToDos deferred when they are useful but outside the current objective.
 - Do not add unrelated ToDos to the active execution list.
+- Prefer an in-response ToDo list for small tasks.
+- Prefer `TODO.md` for longer runs, interrupted work, or handoff between sessions.
 
 ## Validation
 

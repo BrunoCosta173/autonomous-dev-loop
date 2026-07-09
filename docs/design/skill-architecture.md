@@ -95,9 +95,24 @@ It should not claim guaranteed compatibility with every stack. It adapts by usin
 
 Both Skill targets include an `assets/` directory.
 
-In Step 2, assets remain reserved for future reusable templates.
+The `assets/` directory contains reusable project control file templates that agents can copy or adapt into user projects when useful.
 
-Step 3 should define project control file templates in `assets/`.
+Current templates:
+
+- `AGENTS.template.md`
+- `CLAUDE.template.md`
+- `BACKLOG.template.md`
+- `ROADMAP.template.md`
+- `DEVELOPMENT_LOG.template.md`
+- `TEST_PLAN.template.md`
+- `DECISIONS.template.md`
+- `KNOWN_ISSUES.template.md`
+- `TODO.template.md`
+- `FINAL_REPORT.template.md`
+
+The Skill should not force every template into every project. It should create or suggest templates based on the current objective, project context, missing documentation, and whether durable continuity is useful.
+
+The template usage policy is documented in `references/documentation-rules.md`.
 
 ## Deferred Sync Strategy
 

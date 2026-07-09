@@ -2,6 +2,8 @@
 
 End each autonomous run with a clear final report.
 
+For a persistent report, copy or adapt `assets/FINAL_REPORT.template.md` into the target project as `FINAL_REPORT.md` when the user asks for durable output or when the run is complex enough to benefit from a saved report.
+
 ## Required Sections
 
 Report:
@@ -38,6 +40,8 @@ Use one of:
 - Mention safety gates even if they were only encountered and not approved.
 - Mention assumptions that influenced implementation.
 - Keep the report concise but complete enough for another agent or developer to continue.
+- Prefer the chat final report for small runs.
+- Prefer `FINAL_REPORT.md` for longer runs, blocked work, or handoffs across sessions.
 
 ## Recommended Next Objective
 
